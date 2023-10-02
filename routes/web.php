@@ -16,7 +16,7 @@
 // });
 // Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth::routes();
+// Auth::routes();
 
 
 //ログアウト中のページ
@@ -26,11 +26,13 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-Route::get('/added', 'Auth\RegisterController@added');
-Route::post('/added', 'Auth\RegisterController@added');
+// [タスク2]新規登録のバリデーション設定で以下の二つのルーティングのメソッド記述を「@added」→「@register」に変更1002
+Route::get('/added', 'Auth\RegisterController@register');
+Route::post('/added', 'Auth\RegisterController@register');
 
-//ログイン中のページ
-Route::get('/top','PostsController@index');
+
+// ログイン中のページ
+Route::post('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 

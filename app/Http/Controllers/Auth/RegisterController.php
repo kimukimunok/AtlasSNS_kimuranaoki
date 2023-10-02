@@ -42,6 +42,19 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){
 
+            // [タスク2]ユーザー登録時のバリデーションを設定する
+//Laravel createの実装のバリデーションの所で ~~Controller.phpに記載していた為ここに記述する。（https://course.lull-inc.co.jp/curriculum/9552/）
+
+            $request->validate([
+                'username' => 'required|min:2|max:12|',
+                'mail' => 'required|unique:atlas_sns|email|min:5|max:40',
+            // atlas_snsにはmailテーブルが無かったため一旦スルー/10/2
+                'password' => 'required|alpha_num|min:8|max:20|',
+                'password_confirmation' => 'required|alpha_num|password_confirmed||min:8|max:20',
+            ]);
+
+// [required]入力必須,[min:oo]最低文字数,[max:oo]最高文字数,[email]メール形式（調べたら細かいのあったけど大丈夫そう）,[unique:テーブル名,カラム]指定したデータベース内で独立したもの,[alpha_num]英数字のみ,[{指定した文字列}_confirmed]指定した文字列と同じか,
+
             $username = $request->input('username');
             $mail = $request->input('mail');
             $password = $request->input('password');
