@@ -26,9 +26,9 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-// [タスク2]新規登録のバリデーション設定で以下の二つのルーティングのメソッド記述を「@added」→「@register」に変更1002
-Route::get('/added', 'Auth\RegisterController@register');
-Route::post('/added', 'Auth\RegisterController@register');
+// [タスク2]新規登録のバリデーション設定で以下の二つのルーティングのメソッド記述を「@added」→「@register」に変更1002→1003変えたせいでaddedページが変なことになってたから直した
+Route::get('/added', 'Auth\RegisterController@added');
+Route::post('/added', 'Auth\RegisterController@added');
 
 
 // ログイン中のページ

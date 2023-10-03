@@ -11,6 +11,6 @@ class Atlas_SNSSeeder extends Seeder
      */
     public function run()
     {
-        //DBデータを追加するのはここ
+        //$this->call(UsersTableSeeder::class);
     }
 }

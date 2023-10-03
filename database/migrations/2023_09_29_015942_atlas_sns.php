@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class AtlasSns extends Migration
 
-
-
 {
     /**
      * Run the migrations.
@@ -34,7 +32,7 @@ class AtlasSns extends Migration
      */
     public function down()
     {
-//  downメソッドはatlassnsテーブルが削除されるという文を追加、不要になった時コマンド一つで対応できる。
+//  downメソッドはatlas_snsテーブルが削除されるという文を追加、不要になった時コマンド一つで対応できる。
 // [schema]スキーマ＝何かのデータベースの構造という意味
         Schema::drop('atlas_sns');
     }
