@@ -14,7 +14,7 @@
 
 @section('content')
 <!-- [タスク01]新規登録先のルーティング記述↓ 0929済 -->
-{!! Form::open(['url' => '/added']) !!}
+{!! Form::open(['url' => '/register']) !!}
 
 <h2>新規ユーザー登録</h2>
 

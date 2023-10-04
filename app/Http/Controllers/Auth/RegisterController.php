@@ -18,7 +18,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+public function ();
     use RegistersUsers;
 
     /**
@@ -40,6 +40,8 @@ class RegisterController extends Controller
 
     public function register(Request $request){
         if($request->isMethod('post')){
+
+            // registerメソッド↑紫色メソッドと認識、
 
             // [タスク2]ユーザー登録時のバリデーションを設定する
 //Laravel createの実装のバリデーションの所で ~~Controller.phpに記載していた為ここに記述する。（https://course.lull-inc.co.jp/curriculum/9552/）
@@ -71,11 +73,18 @@ class RegisterController extends Controller
 // 指定したデータをセッションから取得する。→$requestの中のusernameのセッションを受け取る。
 // 値に名前を付けてセッションに保存する方法↓
 // session()->put('セッションに入れる値の名前', セッションに入れる値);
-            $value = $request->session()->put('username','仮ユーザー');
-// ↑$usernameの値をusernameセッションに入れているという認識。
-// ↓addedページにセッションの値を送る。[->with]を使うことで送ることができる
+
+// 1003スクール後、値を保存、取り出しを行うということの認識を見直し、記述を追加したら新規登録時のユーザー名が表示された。
+// 値を保存する記述を記載↓($usernameの値をusernameセッションに入れているという認識)
+// session()->put('セッションに入れる値の名前', セッションに入れる値);
+            $value = $request->session()->put('username',$username);
+            // ddd($value);
+// 値を取得する記述を記載↓(保存したusernameを取り出す感じ)
+            $$value = $request->session()->get('username');
+
+// ↓addedページにセッションの値を送る。
              return redirect('added');
-            // return redirect('added')->with('username','ここから引き出します');
+            // return redirect('added')->with('username',$username);
 
 // REDMINEで見た答えの様なもの（しかし画面はエラーのまま）
 // $username = $this->create($data);

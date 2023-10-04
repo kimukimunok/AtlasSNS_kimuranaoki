@@ -1,0 +1,12 @@
+{
+  "editor.defaultFormatter": "vscode.php-language-features",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "cSpell.language": "en",
+  "cSpell.enableFiletypes": [
+    "diff"
+  ],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true
+}
