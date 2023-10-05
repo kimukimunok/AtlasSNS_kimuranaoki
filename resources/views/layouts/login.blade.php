@@ -25,7 +25,7 @@
     <header>
         <div id="head">
             <!-- [タスク3-1]ロゴにリンクを設置する。 ログイン画面のトップページは"/top"と思うから、/topにしてるけどエラー出るから"web.php"の"/top"に対するルーティングに[get]を追加（getにすることでログイン中にログイン情報を持ってくるから？） -->
-            <h1><a href="/top" ><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
                     <p>〇〇さん<img src="images/arrow.png"></p>
@@ -37,8 +37,8 @@
                                 <!-- [タスク3-3]ホームとプロフィール編集のリンクを設定する。「!!実装がそんなに進んでないから後でまた再確認!!」 -->
                                 <li><a href="/top">ホーム</a></li>
                                 <li><a href="/profile">プロフィール</a></li>
-                                <!-- [タスク3-4]ログアウト機能の実装、下のリンクを"/logout"から"/login"に変更 -->
-                                <li><a href="/login">ログアウト</a></li>
+                                <!-- [タスク3-4]ログアウト機能の実装、下のリンクを"/logout"から"/login"に変更→間違い -->
+                                <li><a href="/logout">ログアウト</a></li>
                             </ul>
                         </details>
                     </div>
@@ -63,6 +63,14 @@
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="">ユーザー検索</a></p>
+            <!-- [タスク5-1]検索ワードの入力フォームを設置する -->
+            <!-- [タスク5-2]ユーザー検索の処理を実装する。「form」検索処理が行われたときの動きを作る。 -->
+            <form action="/search" method="post">
+                @csrf
+                <!-- 1"search"で入力欄作成。10/05ではボタンを置いただけで検索できない -->
+                <input type="search" name="search" placeholder="ユーザー名">
+                <button type="submit">検索</button>
+            </form>
         </div>
     </div>
     <footer>

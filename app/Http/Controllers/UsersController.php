@@ -10,7 +10,17 @@ class UsersController extends Controller
     public function profile(){
         return view('users.profile');
     }
-    public function search(){
-        return view('users.search');
+    // [タスク5-2]ユーザー検索の処理を実装する。で下のsearchメソッドを使用
+    public function search(Request $Request){
+        //[タスク5-3]検索後に検索ワードを画面に表示する。ここから初める。
+        // $keywordの定義、$requestの中から検索したものがkeyword
+        $keyword = $request ->input('keyword');
+          //keyword(検索フォームの値が)が入力されたとき。
+        if(!enpty($keyword)){
+            $username = users::where('username', 'like', '%' . $keyword . '%')->get();
+        }else{
+            $username = users::all();
+        }
+        return view('users.search',['users'=>$username]);
     }
 }

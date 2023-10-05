@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+// use Illuminate\Support\Facades\Auth(authファサードを読み込む記述)
+// use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -53,9 +55,10 @@ class LoginController extends Controller
     }
 // ログアウト機能
     public function logout(Request $request){
-        // Auth::logout() でログアウトを行う。
-        Auth::logout(){
+        // Auth::logout() でログアウトを行う(Authファサードのlogoutメソッドを使用)。
+        Auth::logout();
         //"/login"画面を表示せる。
-        retrun redirect('/login');
-    }}
+        // retrun redirect('/login');reurunのスペルミス！！！！！
+        return redirect('/login');
+    }
 }
