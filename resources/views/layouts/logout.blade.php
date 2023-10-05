@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <!--IEブラウザ対策-->
@@ -19,15 +20,22 @@
   <link rel="apple-touch-icon-precomposed" href="画像のURL" />
   <!--OGPタグ/twitterカード-->
 </head>
+
 <body>
   <header>
-    <h1><img src="images/atlas.png"></h1>
+    <!-- [タスク3－1]Atlasロゴにトップページに遷移するリンクを設置する。・トップページとはログイン画面の事と思って"/login"にした。
+リンクhtmlタグ[a href="遷移したい所のリンク"] -->
+    <h1><a href="/login"><img src="images/atlas.png">
+      </a>
+    </h1>
     <p>Social Network Service</p>
   </header>
   <div id="container">
     @yield('content')
   </div>
-  <script src="JavaScriptファイルのURL"></script>
+  <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。？なんで二つあるの？ -->
+  <script src="/public/js/app.js"></script>
   <script src="JavaScriptファイルのURL"></script>
 </body>
+
 </html>

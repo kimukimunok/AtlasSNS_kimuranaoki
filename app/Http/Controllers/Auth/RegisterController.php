@@ -18,7 +18,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-public function ();
+
     use RegistersUsers;
 
     /**
@@ -84,13 +84,6 @@ public function ();
 
 // ↓addedページにセッションの値を送る。
              return redirect('added');
-            // return redirect('added')->with('username',$username);
-
-// REDMINEで見た答えの様なもの（しかし画面はエラーのまま）
-// $username = $this->create($data);
-// $user = $request->get('username');
-// return redirect('added')->with('username', $user);
-
 
         }
         return view('auth.register');
