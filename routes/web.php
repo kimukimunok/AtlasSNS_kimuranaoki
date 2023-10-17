@@ -16,7 +16,7 @@
 // });
 // Route::get('/home', 'HomeController@index')->name('home');
 
-//Auth::routes();
+// Auth::routes();
 
 
 //ログアウト中のページ
@@ -32,18 +32,24 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
-Route::post('/top','PostsController@index');
-Route::get('/top','PostsController@index');
+Route::post('/top', 'PostsController@index');
+Route::get('/top', 'PostsController@index');
 
-Route::get('/profile','UserController@profile');
-Route::get('/search','UsersController@index');
+Route::get('/profile', 'UserController@profile');
+Route::get('/search', 'UsersController@index');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list', 'PostsController@index');
+Route::get('/follower-list', 'PostsController@index');
 
 // ログアウト機能のルーティング
-Route::get('/logout','Auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
 // /logoutに変更(logoutメソッドを使用する為)
+
+// 投稿フォームの作成（index.bladeとのルーティング）
+Route::post('/top', 'PostsController@index');
+
+// 投稿を登録するフォームの作成
+Route::post('/post/create', 'PostsController@create');
 
 // [タスク5-2]ユーザー検索の処理を実装する。検索機能のルーティング
 Route::post('/search', 'UsersController@search');

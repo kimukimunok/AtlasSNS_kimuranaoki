@@ -8,6 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    public function post()
+    {
+        return $this->hasMany('App\Post');
+    }
+// 1対多のリレーション
 
     /**
      * The attributes that are mass assignable.

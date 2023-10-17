@@ -58,7 +58,7 @@ class LoginController extends Controller
         // Auth::logout() でログアウトを行う(Authファサードのlogoutメソッドを使用)。
         Auth::logout();
         //"/login"画面を表示せる。
-        // retrun redirect('/login');reurunのスペルミス！！！！！
+        // retrun redirect('/login');returnのスペルミス！！！！！
         return redirect('/login');
     }
 }
