@@ -62,15 +62,16 @@
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
             <!-- [タスク5-1]検索ワードの入力フォームを設置する -->
             <!-- [タスク5-2]ユーザー検索の処理を実装する。「form」検索処理が行われたときの動きを作る。 -->
             <form action="/search" method="post">
                 @csrf
                 <!-- 1"search"で入力欄作成。10/05ではボタンを置いただけで検索できない -->
-                <input type="search" name="search" placeholder="ユーザー名">
+                <input type="search" name="keyword" placeholder="ユーザー名">
                 <button type="submit">検索</button>
             </form>
+
         </div>
     </div>
     <footer>
