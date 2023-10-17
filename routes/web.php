@@ -46,6 +46,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // /logoutに変更(logoutメソッドを使用する為)
 
 // 投稿フォームの作成（index.bladeとのルーティング）
+
 Route::post('/top', 'PostsController@index');
 
 // 投稿を登録するフォームの作成

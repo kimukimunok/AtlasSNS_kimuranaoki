@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Post;
 use App\User;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +12,7 @@ class PostsController extends Controller
 {
     public function index()
     {
+
         return view('posts.index'); //  投稿画面の表示
     }
 
@@ -40,5 +42,6 @@ class PostsController extends Controller
         // $post->save();
 
         return view('posts.index'); // 投稿した後一覧画面を表示する
+
     }
 }
