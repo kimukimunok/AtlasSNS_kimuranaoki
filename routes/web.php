@@ -20,6 +20,7 @@
 
 
 //ログアウト中のページ
+
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
@@ -32,8 +33,8 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
-Route::post('/top', 'PostsController@index');
-Route::get('/top', 'PostsController@index');
+Route::post('/top', 'PostsController@index')->middleware('auth');
+Route::get('/top', 'PostsController@index')->middleware('auth');
 
 Route::get('/profile', 'UserController@profile');
 Route::get('/search', 'UsersController@index');
@@ -51,6 +52,11 @@ Route::post('/top', 'PostsController@index');
 
 // 投稿を登録するフォームの作成
 Route::post('/post/create', 'PostsController@create');
+// 投稿更新処理の記述。
+Route::get('/post/update', 'PostsController@update');
+// 投稿削除処理の記述
+Route::get('/post/{id}/delete', 'PostsController@delete');
+
 
 // [タスク5-2]ユーザー検索の処理を実装する。検索機能のルーティング
 Route::post('/search', 'UsersController@search');

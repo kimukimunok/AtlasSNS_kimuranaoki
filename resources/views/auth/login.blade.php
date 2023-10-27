@@ -3,7 +3,7 @@
 @section('content')
 <!-- 適切なURLを入力してください -->
 <!-- [タスク01]ログイン先のルーティング記述↓ 0929済-->
-{!! Form::open(['url' => '/top']) !!}
+{!! Form::open(['url' => '/login']) !!}
 
 <p>AtlasSNSへようこそ</p>
 

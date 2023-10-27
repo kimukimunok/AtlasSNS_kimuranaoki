@@ -7,7 +7,7 @@ class Post extends Model
 {
     //1010　登録処理の実行
 
-    public function User()
+    public function user()
     {
         return $this->belongsTo('App\User');
         // belongsToは従テーブルの複数レコードに対して、主テーブルの1つのレコードが紐付けるときに用いられる。「多対１つ」の関係性
