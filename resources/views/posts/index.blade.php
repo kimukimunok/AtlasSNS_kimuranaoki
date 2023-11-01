@@ -24,19 +24,26 @@
 ・投稿編集ボタン
 ・投稿削除ボタン -->
 <!-- $post とは投稿されたデータの事だから、他でえられたデータを入れる。 -->
+<!-- 現状、$postが未定義変数となるエラーが続いている。postscontollorで[post=>$post]したがindexにデータが送られていないっぽい。ここのところを聞く。 -->
+
+
+
 <div class="container">
-    @foreach ($post as $post)
+    @foreach ($posts as $post)
+    <!-- 複数形as単数形でかくというルール。 前回は($post as $post)だった為、単数と単数、同じ名前だった。-->
+    <!-- $postとは投稿されたものの情報 -->
     <tr>
         <td>{{ $post->icon }}</td><!-- ユーザーアイコン -->
         <td>{{ $post->user->username }}</td><!-- ユーザー名 -->
         <td>{{$post->post}}</td><!-- ・投稿内容 -->
         <td>{{ $post->created_at }}</td><!-- 投稿日時 -->
-        <td><a class="btn btn-primary" href="post={{$post->id}}/update-form">更新</a></td><!-- 更新ボタンの記述 -->
-        <td><a class="btn btn-danger" href="/post/{{post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td><!-- 削除ボタンの記述 -->
+        <td><a class="btn btn-primary" href="post={{$post->id}}/update">更新</a></td><!-- 更新ボタンの記述 -->
+        <td><a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td><!-- 削除ボタンの記述 -->
     </tr>
     @endforeach
 </div>
 
+<!--  -->
 
 @endsection
 
