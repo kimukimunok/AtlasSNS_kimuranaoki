@@ -37,8 +37,10 @@
         <td>{{ $post->user->username }}</td><!-- ユーザー名 -->
         <td>{{$post->post}}</td><!-- ・投稿内容 -->
         <td>{{ $post->created_at }}</td><!-- 投稿日時 -->
-        <td><a class="btn btn-primary" href="post={{$post->id}}/update">更新</a></td><!-- 更新ボタンの記述 -->
-        <td><a class="btn btn-danger" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td><!-- 削除ボタンの記述 -->
+        <td><a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">更新</a><!-- 更新ボタンの記述モーダル画面が必要。 -->
+            <!-- <?php var_dump($posts); ?> -->
+        <td>
+        <td><a href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a></td><!-- 削除ボタンの記述 -->
     </tr>
     @endforeach
 </div>

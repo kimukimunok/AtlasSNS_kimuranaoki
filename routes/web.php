@@ -60,3 +60,17 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 
 // [タスク5-2]ユーザー検索の処理を実装する。検索機能のルーティング
 Route::post('/search', 'UsersController@search');
+
+
+//他ユーザーをフォローする
+Route::get('/user/{id}/follow', 'UsersController@follow')->name('follow');
+
+//他ユーザーをフォロー解除する
+Route::get('/user/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
+
+
+//フォローリスト
+Route::get('/follow-list', 'FollowsController@followList');
+
+//フォロワーリスト
+Route::get('/follower-list', 'FollowsController@followerList');

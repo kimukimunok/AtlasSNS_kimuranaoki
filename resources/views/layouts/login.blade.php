@@ -28,7 +28,7 @@
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
                     <!-- [タスク3-2]アコーディオンメニューを表示させる「!!CSSまだ!!矢印変わるとか背景色とかまだ!!」 -->
                     <div>
                         <!-- [details]でHTML/CSSでアコーディオンメニューが作れる。詳細は→[https://lab.dxo.co.jp/notes/web-design/accordion-menu] -->
@@ -41,6 +41,7 @@
                                 <li><a href="/logout">ログアウト</a></li>
                             </ul>
                         </details>
+                        <!-- アコーディオンメニュー済み -->
                     </div>
                 </div>
     </header>
@@ -50,15 +51,18 @@
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
+                <!-- （ログインしているユーザー）さんの -->
                 <div>
                     <p>フォロー数</p>
-                    <p>〇〇名</p>
+                    <p>{{ Auth::user()->follow()->get()->count() }}名</p>
+                    <!-- ログインしているユーザーさんがフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="">フォローリスト</a></p>
                 <div>
                     <p>フォロワー数</p>
-                    <p>〇〇名</p>
+                    <p>{{ Auth::user()->follower()->get()->count() }}</p>
+                    <!-- ログインしているユーザーさんをフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="">フォロワーリスト</a></p>
             </div>
@@ -66,10 +70,7 @@
             <!-- [タスク5-1]検索ワードの入力フォームを設置する -->
             <!-- [タスク5-2]ユーザー検索の処理を実装する。「form」検索処理が行われたときの動きを作る。 -->
             <form action="/search" method="post">
-                @csrf
-                <!-- 1"search"で入力欄作成。10/05ではボタンを置いただけで検索できない -->
-                <input type="search" name="keyword" placeholder="ユーザー名">
-                <button type="submit">検索</button>
+             <!-- searchの動きはこっちじゃなくてコントーラーに記述する -->
             </form>
 
         </div>
@@ -77,8 +78,8 @@
     <footer>
     </footer>
     <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。？なんで二つあるの？ -->
-    <script src="/public/js/app.js"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('js/script.js' )}}"></script>
 </body>
 
 </html>
