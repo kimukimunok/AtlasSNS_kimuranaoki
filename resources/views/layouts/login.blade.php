@@ -58,19 +58,19 @@
                     <p>{{ Auth::user()->follow()->get()->count() }}名</p>
                     <!-- ログインしているユーザーさんがフォローしている人数 -->
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
                     <p>フォロワー数</p>
                     <p>{{ Auth::user()->follower()->get()->count() }}</p>
                     <!-- ログインしているユーザーさんをフォローしている人数 -->
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
             <!-- [タスク5-1]検索ワードの入力フォームを設置する -->
             <!-- [タスク5-2]ユーザー検索の処理を実装する。「form」検索処理が行われたときの動きを作る。 -->
             <form action="/search" method="post">
-             <!-- searchの動きはこっちじゃなくてコントーラーに記述する -->
+                <!-- searchの動きはこっちじゃなくてコントーラーに記述する -->
             </form>
 
         </div>

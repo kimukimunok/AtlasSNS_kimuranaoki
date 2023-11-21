@@ -8,17 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-    public function post()
-    {
-        return $this->hasMany('App\Post');
-    }
-// 1対多のリレーション
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
+    // アクセス修飾子protected.自クラスと子クラスからのアクセスを可能にするようにする。
     protected $fillable = [
         'username', 'mail', 'password',
     ];
@@ -30,8 +25,11 @@ class User extends Authenticatable
      */
 
 // 次はここから記入箇所！！！
+// hidden[データを取得しないもの]
+// remember_token[ログイン情報を保持するもの]
     protected $hidden = [
         'password', 'remember_token',
+        // パスワード、とログイン状態保持　すること、この二つを取得しないようにする。
     ];
 
     public function posts()
@@ -55,6 +53,8 @@ class User extends Authenticatable
     }
     public function following($id)
     {
+        // フォローしているかどうかを確かめる。
         return $this->follow()->where('followed_id', $id)->exists();
+        // exists＝存在を確かめるもの
     }
 }

@@ -69,8 +69,8 @@ Route::get('/user/{id}/follow', 'UsersController@follow')->name('follow');
 Route::get('/user/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
 
-//フォローリスト
-Route::get('/follow-list', 'FollowsController@followList');
-
-//フォロワーリスト
-Route::get('/follower-list', 'FollowsController@followerList');
+//フォローリスト表示
+Route::get('/followList', 'FollowsController@followList');
+// 復習FollowsControllerのfollowListメソッドを実行
+//フォロワーリスト表示
+Route::get('/followerList', 'FollowsController@followerList');
