@@ -11,6 +11,7 @@ class FollowsController extends Controller
 {
     //pluck＝コレクションメソッド、指定したその一つを取得する。
     // フォローリストを表示する処理
+    // 11/22質問
     public function followList()
     {
         // ログインしているユーザーが、フォローしているユーザー情報の取得↓
