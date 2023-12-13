@@ -36,7 +36,7 @@
                             <ul>
                                 <!-- [タスク3-3]ホームとプロフィール編集のリンクを設定する。「!!実装がそんなに進んでないから後でまた再確認!!」 -->
                                 <li><a href="/top">ホーム</a></li>
-                                <li><a href="/profile">プロフィール</a></li>
+                                <li><a href="/userprofile">プロフィール</a></li>
                                 <!-- [タスク3-4]ログアウト機能の実装、下のリンクを"/logout"から"/login"に変更→間違い -->
                                 <li><a href="/logout">ログアウト</a></li>
                             </ul>
@@ -67,19 +67,12 @@
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
-            <!-- [タスク5-1]検索ワードの入力フォームを設置する -->
-            <!-- [タスク5-2]ユーザー検索の処理を実装する。「form」検索処理が行われたときの動きを作る。 -->
-            <form action="/search" method="post">
-                <!-- searchの動きはこっちじゃなくてコントーラーに記述する -->
-            </form>
-
         </div>
     </div>
     <footer>
     </footer>
-    <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。？なんで二つあるの？ -->
+    <!-- Jqueyのリンク -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/script.js' )}}"></script>
-</body>
 
 </html>

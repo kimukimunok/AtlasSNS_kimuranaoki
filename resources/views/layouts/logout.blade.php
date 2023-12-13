@@ -2,40 +2,40 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <!--IEブラウザ対策-->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="ページの内容を表す文章" />
-  <title></title>
-  <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
-  <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
-  <!--スマホ,タブレット対応-->
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <!--サイトのアイコン指定-->
-  <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-  <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
-  <!--iphoneのアプリアイコン指定-->
-  <link rel="apple-touch-icon-precomposed" href="画像のURL" />
-  <!--OGPタグ/twitterカード-->
+    <meta charset="utf-8" />
+    <!--IEブラウザ対策-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="ページの内容を表す文章" />
+    <title></title>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/logout.css') }} ">
+    <!--スマホ,タブレット対応-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--サイトのアイコン指定-->
+    <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
+    <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+    <!--iphoneのアプリアイコン指定-->
+    <link rel="apple-touch-icon-precomposed" href="画像のURL" />
+    <!--OGPタグ/twitterカード-->
 </head>
 
 <body>
-  <header>
-    <!-- [タスク3－1]Atlasロゴにトップページに遷移するリンクを設置する。・トップページとはログイン画面の事と思って"/login"にした。
+    <header>
+        <!-- [タスク3－1]Atlasロゴにトップページに遷移するリンクを設置する。・トップページとはログイン画面の事と思って"/login"にした。
 リンクhtmlタグ[a href="遷移したい所のリンク"] -->
-    <h1><a href="/login"><img src="images/atlas.png">
-      </a>
-    </h1>
-    <p>Social Network Service</p>
-  </header>
-  <div id="container">
-    @yield('content')
-  </div>
-  <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。？なんで二つあるの？ -->
-  <script src="/public/js/app.js"></script>
-  <script src="JavaScriptファイルのURL"></script>
+        <h1><a href="/login"><img src="images/atlas.png">
+            </a>
+        </h1>
+        <p>Social Network Service</p>
+    </header>
+    <div id="container">
+        @yield('content')
+    </div>
+    <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。→全然違うjqueryのリンク -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{ asset('js/script.js' )}}"></script>
 </body>
 
 </html>

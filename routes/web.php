@@ -47,7 +47,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // /logoutに変更(logoutメソッドを使用する為)
 
 // 投稿フォームの作成（index.bladeとのルーティング）
-
 Route::post('/top', 'PostsController@index');
 
 // 投稿を登録するフォームの作成
@@ -57,20 +56,23 @@ Route::get('/post/update', 'PostsController@update');
 // 投稿削除処理の記述
 Route::get('/post/{id}/delete', 'PostsController@delete');
 
-
 // [タスク5-2]ユーザー検索の処理を実装する。検索機能のルーティング
-Route::post('/search', 'UsersController@search');
-
+Route::post('/search', 'UsersController@search');  //検索ページ
+Route::get('/search', 'UsersController@search');  //検索ページ
 
 //他ユーザーをフォローする
-Route::get('/user/{id}/follow', 'UsersController@follow')->name('follow');
+Route::get('/user/{id}/search', 'FollowsController@follow')->name('follow');
+Route::post('/user/{id}/search', 'FollowsController@follow')->name('follow');
 
 //他ユーザーをフォロー解除する
-Route::get('/user/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
-
+Route::get('/user/{id}/search', 'FollowsController@unfollow')->name('search');
+Route::post('/user/{id}/search', 'FollowsController@unfollow')->name('search');
 
 //フォローリスト表示
 Route::get('/followList', 'FollowsController@followList');
 // 復習FollowsControllerのfollowListメソッドを実行
 //フォロワーリスト表示
 Route::get('/followerList', 'FollowsController@followerList');
+
+//プロフィール遷移先
+Route::get('/userprofile', 'UsersController@userprofile');

@@ -38,12 +38,11 @@ class User extends Authenticatable
         // リレーション箇所、投稿は多の関係の為、[hasmany]を使用
 
     }
+    //フォローする動き
     public function follow()
     {
-        //①相手のクラス②中間テーブル③自分のカラム④相手のカラム
-        //フォローする動き
         return $this->belongsToMany('App\User','follows','following_id','followed_id');
-        // 並びはフォローする相手のクラス、中間のテーブル、自分のカラム、フォローする相手のカラム
+        // 並びは,フォローする相手のクラス、中間のテーブル、自分のカラム、フォローする相手のカラム
     }
     public function follower()
     {
