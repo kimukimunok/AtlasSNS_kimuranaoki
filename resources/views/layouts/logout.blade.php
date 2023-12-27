@@ -23,11 +23,7 @@
 
 <body>
     <header>
-        <!-- [タスク3－1]Atlasロゴにトップページに遷移するリンクを設置する。・トップページとはログイン画面の事と思って"/login"にした。
-リンクhtmlタグ[a href="遷移したい所のリンク"] -->
-        <h1><a href="/login"><img src="images/atlas.png">
-            </a>
-        </h1>
+        <h1><img class="top-image" src="images/atlas.png"></h1>
         <p>Social Network Service</p>
     </header>
     <div id="container">

@@ -8,12 +8,12 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 
 // 投稿画面一覧の表示
-
 class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->get(); //orderByで並び順を登録されたのが新しい順にしている。
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        //orderByで並び順を登録されたのが新しい順にしている。
         // dd($post);←1101データ確認ok
         return view('posts.index', ['posts' => $posts]); //  投稿画面の表示
     }
@@ -22,6 +22,9 @@ class PostsController extends Controller
     // 投稿する機能
     public function create(Request $request)
     {
+        // バリデーション
+        // $request->validate(['post' => 'required|max:150|min|1',]);
+
         //     if(auth::check()){
         //         dd("ログイン成功");
         //     }else{
@@ -39,12 +42,11 @@ class PostsController extends Controller
 
         return redirect('/top'); // 投稿した後一覧画面を表示する
     }
-    // 1101以降ここから。
+
     // 投稿の編集機能update
     public function update(Request $request)
     {
         $id = $request->input('id'); // ユーザーのid情報を受け取っている
-        // dd($id);→1019ヌルだった。
         $up_post = $request->input('upPost');
         Post::where('id', $id)->update([
             'post' => $up_post,
@@ -59,3 +61,4 @@ class PostsController extends Controller
         return redirect('/top');
     }
 }
+// ok

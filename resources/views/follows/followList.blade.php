@@ -1,13 +1,13 @@
 @extends('layouts.login')
 
 @section('content')
-<div>
+<div class="followlist_container">
     <h2>Follow List</h2>
-    <div>
+    <div class="followlist-content">
         <!-- アイコン一覧表示 -->
         <!-- $followを取得 -->
         @foreach($follows as $follow)
-        <span>
+        <span class="follow-icon">
             <!-- idに合わせたプロフィールを表示 -->
             <a href="/users/{{$follow->id}}/profile">
                 <!-- アイコンを取得 -->
@@ -15,19 +15,23 @@
         </span>
         @endforeach
     </div>
+    <div class="line"></div>
     <!-- アイコン表示 -->
     @foreach ($posts as $post)
-    <div>
+    <div class="followlist-item">
         <div>
-            <ul>
+            <ul class="post-flex">
                 <a href="/users/{{$post->user->id}}/profile">
-                    <img src="{{asset('storage/'.$post->user->images)}}" alt="アイコン"></a>
+                    <img src="{{asset('storage/'.$post->user->images)}}" alt="アイコン" width="50"></a>
                 <li>{{$post->user->username}}</li>
                 <li>{{$post->created_at}}</li>
             </ul>
         </div>
-        <ul>{{$post->post}}</ul>
+        <ul>
+            <li class="followlist-post">{{$post->post}}</li>
+        </ul>
     </div>
     @endforeach
 </div>
 @endsection
+<!-- CSSまだ -->

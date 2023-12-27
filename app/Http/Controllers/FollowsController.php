@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 
 class FollowsController extends Controller
 
 {
-    //pluck＝コレクションメソッド、指定したその一つを取得する。
     // フォローリストを表示する処理
     // 11/22質問
     public function followList()
@@ -20,9 +20,13 @@ class FollowsController extends Controller
         // dd($follows);
         // ログインしているユーザーが、フォローしているユーザー情報(id)の取得↓
         $following_id = Auth::user()->follow()->pluck('followed_id');
+        // pluck=指定した一つを取得する。
         // dd($following_id);
         // フォローしているユーザーのidを元に投稿内容を取得(参考②のヒントみる)
-        $posts = Post::with('user')->whereIn('follows', $following_id)->get();
+
+        // ミス記述$posts = Post::with('user')->whereIn('follows', $following_id)->get();
+        $posts = Post::whereIn('user_id', $following_id)->orderBy('created_at', 'desc')->get();
+        // orderbyメソッド（並べ替えメソッド）desc=長い順、大きい順（上の場合作られた順で表示される。）
         return view('follows.followList', [
             // 投稿数とフォローしている人数の情報を出す
             // 複数出す必要がある為[s]複数形にして記述している
@@ -39,7 +43,7 @@ class FollowsController extends Controller
         // ログインしているユーザーフォロワー情報(id)の取得↓
         $followed_id = Auth::user()->follower()->pluck('following_id');
         // フォロワーのidを元に投稿内容を取得(参考②のヒントみる)
-        $posts = Post::with('user')->whereIn('follows', $followed_id)->get();
+        $posts = Post::with('user')->whereIn('user_id', $followed_id)->orderBy('created_at', 'desc');
         return view('follows.followerList', [
             'posts' => $posts,
             'followers' => $followers
@@ -48,14 +52,14 @@ class FollowsController extends Controller
     // フォローボタン、アンフォローボタン
     // followデータベースに登録処理(followする)と解除(unfollowする)を行う処理を調べる。
     // ログインしているユーザーが～フォローする。という記述の為、Auth::userつかう。
-    // レコードを追加する[atach]削除する[detach]
+    // レコードを追加する[attach]削除する[detach]
 
     public function follow($id)
     {
         $users = Auth::user();
         $isFollowing = $users->isFollowing($id);
         if (!$isFollowing) {
-            $users->follow()->atach($id);
+            $users->follow()->attach($id);
             return back();
         }
         // もしログインしているユーザーがフォローを行ったらレコードを追加する。（フォローする）
@@ -65,12 +69,13 @@ class FollowsController extends Controller
     {
         $users = Auth::user();
         $isFollowing = $users->isFollowing($id);
-        if (!$isFollowing) {
+        if ($isFollowing) {
             $users->follow()->detach($id);
-            return view('users.search');
+            return back();
         }
         // もしログインしているユーザーがフォローを解除したらレコードを削除する。（フォローを外す）
     }
 
     // ボタンを押したとき、リンク先が変更できないからここから始める。
 }
+// ok

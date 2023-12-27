@@ -16,12 +16,15 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
+    // homeになる現象を直すのここ
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/top');
+            // RouteServiceProvider::HOME→/top
         }
 
         return $next($request);
     }
 }
+// ok

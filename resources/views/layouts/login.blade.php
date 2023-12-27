@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <!--IEブラウザ対策-->
+    <title>AtlasSNS</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
@@ -26,23 +27,20 @@
         <div id="head">
             <!-- [タスク3-1]ロゴにリンクを設置する。 ログイン画面のトップページは"/top"と思うから、/topにしてるけどエラー出るから"web.php"の"/top"に対するルーティングに[get]を追加（getにすることでログイン中にログイン情報を持ってくるから？） -->
             <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
-                    <!-- [タスク3-2]アコーディオンメニューを表示させる「!!CSSまだ!!矢印変わるとか背景色とかまだ!!」 -->
-                    <div>
-                        <!-- [details]でHTML/CSSでアコーディオンメニューが作れる。詳細は→[https://lab.dxo.co.jp/notes/web-design/accordion-menu] -->
-                        <details>
-                            <ul>
-                                <!-- [タスク3-3]ホームとプロフィール編集のリンクを設定する。「!!実装がそんなに進んでないから後でまた再確認!!」 -->
-                                <li><a href="/top">ホーム</a></li>
-                                <li><a href="/userprofile">プロフィール</a></li>
-                                <!-- [タスク3-4]ログアウト機能の実装、下のリンクを"/logout"から"/login"に変更→間違い -->
-                                <li><a href="/logout">ログアウト</a></li>
-                            </ul>
-                        </details>
-                        <!-- アコーディオンメニュー済み -->
-                    </div>
+            <div class="accordion-container">
+                <ul>
+                    <li class="header-username">{{ Auth::user()->username }}さん</li>
+                    <li class="accordion-push"></li>
+                </ul>
+                <!-- アコーディオンメニュー -->
+                <div class="menu-container">
+                    <nav>
+                        <ul class="menu-items">
+                            <li class="home"><a href="/top">HOME</a></li>
+                            <li class="profile"><a href="/profile">プロフィール</a></li>
+                            <li class="logout"><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
                 </div>
     </header>
     <div id="row">
@@ -51,22 +49,22 @@
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
+                <p class="side-name">{{ Auth::user()->username }}さんの</p>
                 <!-- （ログインしているユーザー）さんの -->
-                <div>
+                <div class="auth-follows">
                     <p>フォロー数</p>
-                    <p>{{ Auth::user()->follow()->get()->count() }}名</p>
+                    <p class="count">{{ Auth::user()->follow()->get()->count() }}人</p>
                     <!-- ログインしているユーザーさんがフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div>
+                <div class="auth-follower">
                     <p>フォロワー数</p>
-                    <p>{{ Auth::user()->follower()->get()->count() }}</p>
+                    <p>{{ Auth::user()->follower()->get()->count() }}人</p>
                     <!-- ログインしているユーザーさんをフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn-search"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
@@ -76,3 +74,4 @@
     <script src="{{ asset('js/script.js' )}}"></script>
 
 </html>
+<!-- CSSまだ -->
