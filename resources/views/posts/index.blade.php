@@ -40,47 +40,52 @@
                     <!-- アイコンを表示する。 -->
                     <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="40">
                 </div>
-                <!-- ユーザー名と投稿日を表示する -->
+                <!-- ユーザー名-->
                 <li class="post-username">{{$post->user->username}}</li>
+                <!-- 投稿日時 -->
                 <li class="post-time">{{$post->created_at}}</li>
             </ul>
         </div>
         <ul>
             <!-- 変数を表示させるためにn12brを使っている。 -->
-             <li class="post-detail">{!! nl2br(e($post->post)) !!}</li>
+            <li class="post-detail">{!! nl2br(e($post->post)) !!}</li>
         </ul>
-        <!-- ログインユーザーと投稿したユーザーがあってれば -->
+        <!-- if文、ログインユーザーと投稿したユーザーがあってれば -->
         @if(Auth::user()->id == $post->user->id)
+
         <!-- 投稿編集機能 -->
         <div class="modal-container">
-            <!-- モーダル画面で変種を行い、投稿とidを新しくする・ -->
+            <!-- モーダル画面で編集を行い、投稿とidを新しくする・ -->
+            <!-- こんな感じに表示される。<a class="js-modal-open" href="" post="検証"(投稿内容) post_id="42"(投稿ID)> -->
             <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
                 <img src="images/edit.png" alt="編集" width="30"></a>
-            <!-- 投稿削除 -->
+
+                <!-- 投稿削除 -->
             <a class="post-delete" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
                 <img class="delete" src="images/trash.png" alt="削除">
-                <!-- <img class="delete-hover" src="images/trash.png" alt="ホバー"> -->
             </a>
         </div>
         @endif
     </div>
 </div>
 @endforeach
-<!-- モーダル -->
-<div class="modal js-modal">
-    <div class="modal_bg js-modal-close"> </div>
+<!-- モーダル ここが出てない。→CSSで画面から消して、ボタン操作で表示させる。-->
+<div class="js-modal">
+    <div class="js-modal-close"> </div>
     <div class="modal_content">
         <form action="/post/update" method="post">
-            <!-- valueの値を入れないのは見えない状態でpostIdを送る為 -->
+            <!-- value="(空欄)"なのは見えない処理で更新したい投稿内容を(postid)送る為 -->
+            <!-- テキストエリア -->
             <textarea name="upPost" class="modal_post" value=""></textarea>
             <input type="hidden" name="postId" class="modal_id" value="">
             <div class="postUpdate_container">
                 <img class="postUpdate_img" src="images?edit.png" alt="編集" width="40">
+                <!-- 更新ボタン -->
                 <input class="btn-post_update" type="submit" value="更新">
             </div>
             {{ csrf_field() }}
         </form>
-        <a class="Js-modal-close" href=""></a>
+        <a class="js-modal-close" href=""></a>
     </div>
 </div>
 @endsection

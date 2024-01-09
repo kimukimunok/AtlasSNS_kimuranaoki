@@ -69,8 +69,10 @@
     </div>
     <footer>
     </footer>
-    <!-- Jqueyのリンク -->
+    <!-- jqueryのリンク -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 自作のJSファイルを下記に指定する。script.js -->
+    <!-- JSフォルダにscript.jsフォルダを作って、モーダルの設定をする。 -->
     <script src="{{ asset('js/script.js' )}}"></script>
 
 </html>
