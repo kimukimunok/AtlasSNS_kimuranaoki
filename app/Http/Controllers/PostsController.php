@@ -46,11 +46,14 @@ class PostsController extends Controller
     // 投稿の編集機能update
     public function update(Request $request)
     {
-        $id = $request->input('id'); // ユーザーのid情報を受け取っている
+        $id = $request->input('id'); // ユーザーのid情報を取得
         $up_post = $request->input('upPost');
+
+        // dd($up_post);→送れていた
         Post::where('id', $id)->update([
             'post' => $up_post,
         ]);
+        // dd($up_post);→こっちも送れていた。→何故が投稿編集後に更新されない。
         return redirect('/top');
     }
     // 投稿の削除機能delete

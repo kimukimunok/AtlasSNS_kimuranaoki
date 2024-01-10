@@ -47,7 +47,7 @@
             </ul>
         </div>
         <ul>
-            <!-- 変数を表示させるためにn12brを使っている。 -->
+            <!-- nl2br＝組み込み関数(文章前に改行する機能) -->
             <li class="post-detail">{!! nl2br(e($post->post)) !!}</li>
         </ul>
         <!-- if文、ログインユーザーと投稿したユーザーがあってれば -->
@@ -58,9 +58,10 @@
             <!-- モーダル画面で編集を行い、投稿とidを新しくする・ -->
             <!-- こんな感じに表示される。<a class="js-modal-open" href="" post="検証"(投稿内容) post_id="42"(投稿ID)> -->
             <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}">
-                <img src="images/edit.png" alt="編集" width="30"></a>
+                <img src="images/edit.png" alt="編集" ></a>
+                <!-- width=30消してる後で戻す。 -->
 
-                <!-- 投稿削除 -->
+            <!-- 投稿削除 -->
             <a class="post-delete" href="/post/{{$post->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
                 <img class="delete" src="images/trash.png" alt="削除">
             </a>

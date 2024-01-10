@@ -9,6 +9,7 @@ $(function () {
     //   this(変数)にpostとpost_idの属性を加える（取得する）
       var post = $(this).attr('post');
       var post_id = $(this).attr('post_id');
+    //   イメージ(this=post)のようになっている。
           //   コンソールで結果を調べた際、変数が無いと表示される。
       //更新内容とIDをモーダルに
     //   投稿は文字列(text)で、IDは変数(.val)で送る
