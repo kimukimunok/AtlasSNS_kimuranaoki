@@ -6,7 +6,7 @@
 {!! Form::open(['url' => '/login']) !!}
 <div class="login-container">
     <div class="background">
-        <div class="login=items">
+        <div class="login-items">
             <p class="login-text">AtlasSNSへようこそ</p>
             <ul>
                 <li class="form-label">{{ Form::label('mail address','mail address') }}</li>
@@ -15,7 +15,7 @@
                 <li class="form-text">{{ Form::password('password',['class' => 'input']) }}</li>
                 <div class="login-button">
                     <form>
-                        <p><input class="btn btn-nextregister" type="submit" value="LOGIN"></p>
+                        <p><input class="btn btn-loginregister" type="submit" value="LOGIN"></p>
                     </form>
                 </div>
             </ul>
@@ -24,5 +24,5 @@
     </div>
 </div>
 {!! Form::close() !!}
-<!-- CSSまだ -->
+<!-- CSS記述ok -->
 @endsection

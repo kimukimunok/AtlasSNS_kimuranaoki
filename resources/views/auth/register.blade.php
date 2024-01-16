@@ -30,15 +30,15 @@
                 <li class="register-label">{{ Form::label('password_confirmation', 'password_confirmation') }}</li>
                 <li class="form-text">{{ Form::password('password_confirmation',null,['class' => 'input']) }}</li>
                 <form>
-                    <p><input class="btn btn-nexttop" type="submit" value="REGISTER"></p>
+                    <p><input class="btn btn-register" type="submit" value="REGISTER"></p>
                 </form>
             </ul>
+            {!! Form::close() !!}
             <p class="register-text"><a href="/login">ログイン画面へ戻る</a></p>
         </div>
     </div>
 </div>
-<!-- CSSまだ -->
-{!! Form::close() !!}
+<!-- CSSok -->
 
 
 @endsection

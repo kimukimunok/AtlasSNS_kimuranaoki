@@ -78,7 +78,7 @@
             <!-- value="(空欄)"なのは見えない処理で更新したい投稿内容を(postid)送る為 -->
             <!-- テキストエリア -->
             <textarea name="upPost" class="modal_post" value=""></textarea>
-            <input type="hidden" name="postId" class="modal_id" value="">
+            <input type="hidden" name="Id" class="modal_id" value="">
             <div class="postUpdate_container">
                 <img class="postUpdate_img" src="images?edit.png" alt="編集" width="40">
                 <!-- 更新ボタン -->

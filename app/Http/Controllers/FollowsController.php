@@ -43,7 +43,8 @@ class FollowsController extends Controller
         // ログインしているユーザーフォロワー情報(id)の取得↓
         $followed_id = Auth::user()->follower()->pluck('following_id');
         // フォロワーのidを元に投稿内容を取得(参考②のヒントみる)
-        $posts = Post::with('user')->whereIn('user_id', $followed_id)->orderBy('created_at', 'desc');
+        $posts = Post::with('user')->whereIn('user_id', $followed_id)->orderBy('created_at', 'desc')->get();
+        // 上の->get();の記述忘れでフォロワーの投稿が表示されてなかった。
         return view('follows.followerList', [
             'posts' => $posts,
             'followers' => $followers

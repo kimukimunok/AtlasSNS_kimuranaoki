@@ -1,10 +1,140 @@
 @charset "UTF-8";
 
-html{
-    height: 100%;
+
+html{height: 100%;
+    /* heightコンテンツ幅の高さの設定100％は全体に表示させる*/
+}
+body{
+     height:100%;
+    /* 画面背景グラデーション */
+    background-image: linear-gradient(
+#0066FF,#3399FF,#FFCC00);
+color: #fff;
+}
+/* header AtlasSNSの文字とか*/
+header{
+    text-align: center;
+    /* テキストの位置(中心) */
+}
+/* Atlas画像 */
+header img {
+    justify-content: center;
+    position: relative;
+    width: 105px;
+    padding-top: 110px;
+}
+/* Social Network Service */
+header p {
+    text-align: center;
+    color: #fff;
+    top: 150px;
+    font-size: 22px;
+
+}
+/* AtlasSNSにようこそより以下 */
+.login-container{
+    margin-bottom: 50px;
+    text-align: center;
+    width: 220px;
+    margin: auto;
+    line-height: 30px;
+}
+.background{
+    background-color: rgb(0 0 0/15%);
+    border-radius: 10px;/* 角を丸く */
+    margin-top: 35px;
+}
+.login-items {
+    padding: 20px 20px 0 20px;
+}
+.login-text {
+    font-size: 14px;
+    font-weight: 100;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+.form-label,.register-label{
+    text-align: left;
+    font-size: 10px;
+    margin-bottom: -10px;
+}
+.input {
+    border: 1px;
+    border-radius: 5px;
+    width: 177px;
+    height: 25px;
+}
+.btn-loginregister{
+    color: #fff;
+    background-color: #ec384e;
+    border-radius: 5px;
+    margin: 15px 0 20px 50%;
+    padding: 5px 22px 5px ;
+    font-size: 15px;
+    border: none;
+}
+.register-text{
+      font-size: 10px;
+}
+/* ログイン画面ここまで */
+/* 新規ユーザー登録画面 */
+.register-background{
+    background-color: rgb(0 0 0/15%);
+    border-radius: 10px;/* 角を丸く */
+}
+
+#password,#password_confirmation{
+    border: 1px;
+    border-radius: 5px;
+    width: 177px;
+    height: 25px;
+}
+.btn-register{
+    color: #fff;
+    background-color: #ec384e;
+    border-radius: 5px;
+    margin: 15px 0 20px 50%;
+    padding: 5px 9px 5px 9px  ;
+    font-size: 14px;
+    border: none;
+}
+.alert-danger{
+    font-size: 11px;
+}
+/* 登録成功画面 */
+#clear {
+    margin: 30px;
+}
+.added-background{
+    text-align: center;
+    width: 220px;
+    margin: auto;
+    line-height: 30px;
+    background-color: rgb(0 0 0/15%);
+    border-radius: 10px;/* 角を丸く */
+}
+.added-background p{
+    margin: -10px ;
+    font-size: 12px;
+}
+
+.added-welcome{
+    /* 太字に */
+    padding-top: 20px;
+    font-weight: bold;
+    margin:0 15px 15px 15px;
+}
+.added-end{
+    margin:15px;
+    }
+
+.added-text {
+    background-color: #ec384e;
+    border-radius: 5px;
+    margin: -10px;
+    border: none;
+}
+
+.added-text a{
+    font-size: 12px;
+    color: #fff;
 }

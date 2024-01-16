@@ -1,7 +1,8 @@
 @charset "utf-8";
-html{
+/* ログイン画面のCSSはこっちに記述(login.bladeにリンクあり) */
+html{color: #186AC9;
 }
-body{
+body{color: #186AC9;
 }
 /* header */
 header{
@@ -20,6 +21,23 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #727272;
 }
+
+
+
+
+/* 全体 */
+
+/* ホーム投稿一覧画面 */
+
+/* プロフィール */
+
+/* 相手のプロフィール */
+
+/* フォローリスト */
+
+/* フォロワーリスト */
+
+/* ユーザー検索 */
 
 /* モーダル */
 .modal {
