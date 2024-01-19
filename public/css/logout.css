@@ -27,22 +27,20 @@ header img {
 header p {
     text-align: center;
     color: #fff;
-    top: 150px;
     font-size: 22px;
 
 }
 /* AtlasSNSにようこそより以下 */
 .login-container{
-    margin-bottom: 50px;
     text-align: center;
     width: 220px;
-    margin: auto;
+    margin: 0 auto;
     line-height: 30px;
 }
 .background{
     background-color: rgb(0 0 0/15%);
     border-radius: 10px;/* 角を丸く */
-    margin-top: 35px;
+    -top: 35px;
 }
 .login-items {
     padding: 20px 20px 0 20px;
@@ -111,8 +109,10 @@ header p {
     line-height: 30px;
     background-color: rgb(0 0 0/15%);
     border-radius: 10px;/* 角を丸く */
+    padding-bottom: 20px;
+    /* バックグラウンド空間を下に伸ばした */
 }
-.added-background p{
+.added-background ul p{
     margin: -10px ;
     font-size: 12px;
 }
@@ -130,7 +130,10 @@ header p {
 .added-text {
     background-color: #ec384e;
     border-radius: 5px;
-    margin: -10px;
+    margin: 0 auto;
+    /* 上下の数値を０に、左右をオート化 */
+    width: 50%;
+    /* 左右幅50％に */
     border: none;
 }
 
@@ -138,3 +141,5 @@ header p {
     font-size: 12px;
     color: #fff;
 }
+
+/* とりあえずログアウト画面はここで完了してるはず */
