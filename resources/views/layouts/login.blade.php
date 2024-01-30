@@ -25,41 +25,40 @@
 <body>
     <header>
         <div id="head">
-            <!-- [タスク3-1]ロゴにリンクを設置する。 ログイン画面のトップページは"/top"と思うから、/topにしてるけどエラー出るから"web.php"の"/top"に対するルーティングに[get]を追加（getにすることでログイン中にログイン情報を持ってくるから？） -->
-            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
+            <h1><a href="/top"><img class="header-atlas" src="{{asset('images/atlas.png')}}" width="100"></a></h1>
+
+            <!-- アコーディオンメニュー -->
             <div class="accordion-container">
-                <ul>
-                    <li class="header-username">{{ Auth::user()->username }}さん</li>
-                    <li class="accordion-push"></li>
-                </ul>
-                <!-- アコーディオンメニュー -->
-                <div class="menu-container">
-                    <nav>
-                        <ul class="menu-items">
-                            <li class="home"><a href="/top">HOME</a></li>
-                            <li class="profile"><a href="/profile">プロフィール</a></li>
-                            <li class="logout"><a href="/logout">ログアウト</a></li>
+                <dl class="accordion-list">
+                    <dt class="accordion-title js-title">{{ Auth::user()->username }}さん<img src="{{ \Storage::url(Auth::user()->images) }}"></dt>
+                    <dd class="accordion-text">
+                        <ul>
+                            <li class="text-home"><a href="/top">HOME</a></li>
+                            <li class="text-profile"><a href="/profile">プロフィール編集</a></li>
+                            <li class="text-logout"><a href="logout">ログアウト</a></li>
                         </ul>
-                    </nav>
-                </div>
+                    </dd>
+                </dl>
+            </div>
+
     </header>
     <div id="row">
         <div id="container">
             @yield('content')
         </div>
         <div id="side-bar">
-            <div id="confirm">
-                <p class="side-name">{{ Auth::user()->username }}さんの</p>
+            <div id="side-menu">
+                <p class="side-username">{{ Auth::user()->username }}さんの</p>
                 <!-- （ログインしているユーザー）さんの -->
-                <div class="auth-follows">
+                <div class="follows">
                     <p>フォロー数</p>
                     <p class="count">{{ Auth::user()->follow()->get()->count() }}人</p>
                     <!-- ログインしているユーザーさんがフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
-                <div class="auth-follower">
+                <div class="follower">
                     <p>フォロワー数</p>
-                    <p>{{ Auth::user()->follower()->get()->count() }}人</p>
+                    <p class="count">{{ Auth::user()->follower()->get()->count() }}人</p>
                     <!-- ログインしているユーザーさんをフォローしている人数 -->
                 </div>
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
@@ -76,4 +75,6 @@
     <script src="{{ asset('js/script.js' )}}"></script>
 
 </html>
-<!-- CSSまだ -->
+<!-- CSS完了しているが質問
+全体幅が100％になるようメイン場所とサイドバーの幅を調節しても設定できない。
+アイコンが表示されない。 -->

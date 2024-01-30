@@ -1,45 +1,324 @@
 @charset "utf-8";
 /* ログイン画面のCSSはこっちに記述(login.bladeにリンクあり) */
 html{color: #186AC9;
+     font-size: 16px;
 }
 body{color: #186AC9;
+     max-width: 101%;
 }
 /* header */
 header{
+    max-width: 100%;
     background:#186AC9;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
-/* main content */
+.header-atlas {
+    padding: 17px;
+    width: 73px;
+}
 #row{
     display: flex;
     flex-flow: row wrap;
 }
 #container{
-    flex: 0 0 80%;
+    flex: 0 0 79%;
 }
+
+
+
+/* アコーディオンメニュー */
+.accordion-container {
+  flex: 0 0 20%;
+  height: 0px;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+}
+
+.accordion-list:not(:first-child) {
+  margin-top: 10px;
+}
+
+.accordion-title {
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 20px 40px 20px 15px;
+  position: relative;
+}
+
+.accordion-title:before {
+  position: absolute;
+  display: block;
+  top: 18px;
+  left: 12px;
+  color: #4459b6;
+  font-size: 18px;
+}
+
+.accordion-title:after {
+  position: absolute;
+  display: block;
+  content: '>';
+  top: 35%;
+  right: 22px;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-90deg);
+  transition: all .3s ;
+}
+
+.accordion-title.open:after {
+  transform: rotate(90deg);
+  top: 45%;
+}
+
+.accordion-text {
+    background-color: #fff;
+  ul{border-left: 2px solid #000080;
+  border-right: 2px solid #000080;
+  border-bottom: 2px solid #000080;
+    li{
+        border-top:2px solid #000080;
+      display: flex;
+      height: 60px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.accordion-text:before {
+  position: absolute;
+  display: block;
+  top: 18px;
+  left: 12px;
+  color: #4459b6;
+  font-size: 18px;
+}
+
+.text-home,.text-profile,.text-logout{
+    color: #727272;
+}
+
+.text-profile{
+    background-color :#000080;
+}
+
+/* サイドバー周辺 */
 #side-bar{
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
+    font-size: 12px;
+    color: #000;
+    max-width: 300px;
+}
+#side-menu{
+    padding: 10px;
+    border-bottom: 1px solid #727272;
+}
+.side-username{
+padding-bottom:10px;
+}
+.btn {
+    color: #fff;
+    background-color: #186AC9;
+    padding: 7px 0px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 10px 0 10px;
+    width: 90px;
+    margin-left: 90px;
+    font-size: 10px;
+    display: block;
 }
 
+.side-username{
+     margin: 10px 0;
+}
 
+.follows,.follower{
+    display: flex;
+}
+.count{
+    margin-left:50% ;
+    position: absolute;
+}
+.btn-search {
+    color: #fff;
+    background-color: #36c;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-align: center;
+    display: inline-block;
+    margin:15px 0px 0px 50px;
+    font-size: 13px;
+}
+/* indexblade */
+.form-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 5px solid #d3d3d3;
+    padding: 10px 0 10px;
+    height: 90px;
+}
+.user-icon {
+    width: 45px;
+    padding: 0px 5px 40px 60px;
+}
+.form-btn-container {
+    padding: 0;
+}
+.post {
+    display: block;
+    border: none;
+    /* 文字透け */
+    opacity: 50%;
+    width: 500px;
+    height: 80px;
+}
+.btn-success {
+    width: 30px;
+    height: 30px;
+    padding-top: 40px;
+}
+.post-btn {
+    display: inline-block;
+    /* ボタンをインラインブロックとして表示 */
+    vertical-align: middle;
+    /* 垂直方向に中央寄せ */
+    border: none;
+    background-color: transparent;
+}
 
-
-/* 全体 */
 
 /* ホーム投稿一覧画面 */
+.post-container {
+    color: #000;
+    display: flex;
+    /*justify-content: space-evenly;*/
+    position: relative;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    padding: 20px 0px 50px 150px;
+}
+.post-icon {
+    width: 30px;
+}
+.post-flex {
+    display: flex;
+}
+.post-username {
+    padding: 10px 0 0 10px;
+    font-size: 14px;
+}
+.post-time {
+    font-size: 10px;
+    position: absolute;
+    right: 30px;
+}
+.post-detail {
+    padding:5px 0 5px 60px ;
+    font-size: 14px;
+    width: 500px;
+    word-wrap: break-word;
+}
+/* 編集ボタン */
+.postUpdate_container {
+    position: relative;
+    display: inline-block;
+}
+/* 画像とinput要素を重ねるために絶対配置を設定する */
+.postUpdate_img {
+    position: relative;
+    display: inline-block;
+    top: 5px;
+    left: 280px;
+}
+/* input要素を非表示にして透明にする */
+.btn-post_update {
+    position: absolute;
+    top: 10px;
+    left: 280px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+投稿編集モーダル
+.js-modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+/* モーダル */
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    opacity: 15%;
+}
+.modal-container {
+    right: 30px;
+    position: absolute;
+}
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    border-radius: 7px;
+}
+.modal_post {
+    width: 100%;
+    height: 130px;
+    padding: 10px;
+    position: relative;
+}
+.update_container {
+    position: absolute;
+}
+.btn-post_update {
+    position: absolute;
+}
 
-/* プロフィール */
+/* 削除ボタン */
+.delete {
+    padding: 3px;
+    width: 25px;
+    height: auto;
+    border-radius: 6%;
+}
+/* 削除ホバー ホバー時に元画像がは見えないようにする。*/
+.delete:hover {
+    filter: brightness(5);
+    background:#FF0000;
+    /* ここ他の方法知りたい。 */
+}
 
-/* 相手のプロフィール */
+/* ユーザー検索 */
 
 /* フォローリスト */
 
 /* フォロワーリスト */
 
-/* ユーザー検索 */
+/* プロフィール */
 
-/* モーダル */
-.modal {
-    display: none;
-}
+/* 相手のプロフィール */
