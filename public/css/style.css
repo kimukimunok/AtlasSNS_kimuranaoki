@@ -21,10 +21,10 @@ header{
 }
 #row{
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 #container{
-    flex: 0 0 79%;
+    flex: 0 0 80%;
 }
 
 
@@ -310,10 +310,81 @@ padding-bottom:10px;
 .delete:hover {
     filter: brightness(5);
     background:#FF0000;
-    /* ここ他の方法知りたい。 */
+    /* ここ他の方法知りたい。(文字なら色反転簡単だったんだけど、画像だと色変更方法分からないから明度を上げて白くしている。) */
 }
-
 /* ユーザー検索 */
+.user_search {
+    padding-left: 30px;
+    display: flex;
+    border-bottom: 6px solid #d3d3d3;
+}
+.keyword {
+    margin: 35px 0 35px 34px;
+    width: 200px;
+    height: 15px;
+    padding: 7px;
+    font-size: 15px;
+}
+.search-btn {
+    display: inline-block;
+    vertical-align: middle;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+}
+.search-push {
+    margin: 5px;
+    width: 35px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+.search_word {
+    margin-top: 50px;
+    margin-left: 100px;
+    font-size: 20px;
+}
+.container-list {
+    padding: 30px;
+    width: 100%;
+}
+.list-items {
+    display: flex;
+    width: 410px;
+    margin-top: 20px;
+    padding-left: 200px;
+}
+.search-username {
+    padding: 10px;
+    margin-left: 10px;
+    width: 50%;
+}
+.btn-container {
+    top: 10px;
+}
+.follow_input {
+    width: 110px;
+    padding: 6px;
+    background-color: #39f;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 13px;
+    border: none;
+}
+.unfollow_input {
+    width: 110px;
+    padding: 6px;
+    background-color: #f33;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 13px;
+    border: none;
+}
+.unfollow_input a,
+.follow_input a {
+    color: #fff;
+}
 
 /* フォローリスト */
 
