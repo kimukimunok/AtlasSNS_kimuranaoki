@@ -46,7 +46,7 @@ class PostsController extends Controller
     // 投稿の編集機能update
     public function update(Request $request)
     {
-        $id = $request->input('Id'); // ユーザーのid情報を取得
+        $id = $request->input('postId'); // ユーザーのid情報を取得
         // bladeで指定した名前(name=~)を間違えていた。
 
         $up_post = $request->input('upPost');

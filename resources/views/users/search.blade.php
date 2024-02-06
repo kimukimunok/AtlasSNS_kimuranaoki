@@ -20,7 +20,7 @@
     <table>
         @foreach ($users as $user)
         <ul class="list-items">
-            <li><img src="{{ asset('storage/' .$user->images) }}" alt="ユーザーアイコン" width="50"></li>
+            <li><img src="{{ asset('images/' .$user->images) }}" alt="ユーザーアイコン" width="50"></li>
             <li class="search-username">{{ $user->username }}</li>
             <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示する -->
             @if (Auth::user()->isFollowing($user->id))

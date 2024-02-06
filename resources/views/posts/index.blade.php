@@ -8,7 +8,7 @@
 <li>{{ $error }}</li>
 @endforeach
 <div class="form-container">
-    <img class="user-icon" src="{{ \Storage::url(Auth::user()->images) }}" alt="アイコン" width="50">
+    <img class="user-icon" src=" {{ asset('images/'.Auth::user()->images)}}" alt="アイコン" width="50">
     {{ Form::textarea('newPost', null, ['required', 'class' => 'post', 'placeholder' => '投稿内容を入力してください.', 'style' => 'white-space: pre-line;']) }}
     <div class="form-btn-container">
         <button input="submit" class="post-btn" href="">
@@ -37,7 +37,7 @@
             <ul class="post-flex">
                 <div>
                     <!-- アイコンを表示する。 -->
-                    <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="40">
+                    <img src="{{ asset('images/' .$post->user->images) }}" alt="アイコン" width="40">
                 </div>
                 <!-- ユーザー名-->
                 <li class="post-username">{{$post->user->username}}</li>
@@ -86,5 +86,3 @@
     </div>
 </div>
 @endsection
-
-<!-- アイコンがなぜか表示されない。 -->

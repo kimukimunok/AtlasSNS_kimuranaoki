@@ -11,7 +11,7 @@
             <!-- idに合わせたプロフィールを表示 -->
             <a href="/users/{{$follow->id}}/profile">
                 <!-- アイコンを取得 -->
-                <img src="{{ asset('storage/'.$follow->images)}}" alt="アイコン"></a>
+                <img src="{{ asset('images/'.$follow->images)}}" alt="アイコン" width="30"></a>
         </span>
         @endforeach
     </div>
@@ -22,7 +22,7 @@
         <div>
             <ul class="post-flex">
                 <a href="/users/{{$post->user->id}}/profile">
-                    <img src="{{asset('storage/'.$post->user->images)}}" alt="アイコン" width="50"></a>
+                    <img src="{{asset('images/'.$post->user->images)}}" alt="アイコン" width="30"></a>
                 <li>{{$post->user->username}}</li>
                 <li>{{$post->created_at}}</li>
             </ul>

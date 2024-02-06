@@ -33,31 +33,50 @@ class UsersController extends Controller
         // バリデーション
         $request->validate([
             'username' => 'required|string|max:255',
-            'mail' =>
-            'required|string|email|max:255|unique:users,mail',
+            'mail' => 'required|string|email|max:255|unique:users,mail,' . $user->id . 'id',
             'bio' => 'nullable|string|max:150',
             'password' => 'alpha_num|min:8|max:20|confirmed',
             'image' => 'image|mimes:jpeg,png,jpg,gif'
         ]);
         // 更新内容
-        $user->update([
-            'username' => $request->input('username'),
-            'mail' => $request->input('mail'),
-            'bio' => $request->input('bio')
-        ]);
-        // 画像の更新
-        // ($request->file('image')->isValid())
+        // $user->update([
+        //     'username' => $request->input('username'),
+        //     'mail' => $request->input('mail'),
+        //     'bio' => $request->input('bio')
+        // ]);
+        // // 画像の更新
+        // // ($request->file('image')->isValid())
+        // if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        //     $image = $request->file('image');
+        //     $request->file('image')->storeAs('public', $image);
+        //     // ユーザーテーブルの画像カラムの更新
+        //     $user->update(['images' => $image]);
+        // }
+        // //値が無い時は更新しない。
+        // else {
+        //     $image = $user->images;
+        //     $user->update(['images' => $image]);
+        // }
+        // 画像更新候補
+        //↓画像の更新↓
+        //getClientOrignalNameでオリジナルの名前が取れる
+        //storeAsメソッドを追加して引数に入れた上で、保存場所と変数名を指定する
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $image = $request->file('image');
-            $request->file('image')->storeAs('public', $image);
-            // ユーザーテーブルの画像カラムの更新
-            $user->update(['images' => $image]);
+            $img = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('public', $img);
+            // dd($img);
+            // 更新画像送れている。だが表示されない。（容量の問題？）
+            //usersテーブルのimagesカラムの更新
+            $user->update(['images' => $img]);
+        } else {
+            //空の場合はデフォルトを維持する
+            $img = $user->images;
+            //元の値を再度保存
+            $user->update(['images' => $img]);
         }
-        //値が無い時は更新しない。
-        else {
-            $image = $user->images;
-            $user->images(['images' => $image]);
-        }
+        dd($user);
+
+
 
         // パスワードの更新時
         // パスワードとパスワード確認用がどちらも記述があったら更新する。

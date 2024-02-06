@@ -43,6 +43,7 @@ header{
 }
 
 .accordion-title {
+    display: block;
   color: #fff;
   cursor: pointer;
   font-size: 15px;
@@ -74,13 +75,15 @@ header{
 .accordion-title.open:after {
   transform: rotate(90deg);
   top: 45%;
+
 }
 
 .accordion-text {
-    background-color: #fff;
+    background-color: #FFF;
   ul{border-left: 2px solid #000080;
   border-right: 2px solid #000080;
   border-bottom: 2px solid #000080;
+
     li{
         border-top:2px solid #000080;
       display: flex;
@@ -144,7 +147,7 @@ padding-bottom:10px;
     display: flex;
 }
 .count{
-    margin-left:50% ;
+    margin-left:80px ;
     position: absolute;
 }
 .btn-search {
@@ -311,6 +314,7 @@ padding-bottom:10px;
     filter: brightness(5);
     background:#FF0000;
     /* ここ他の方法知りたい。(文字なら色反転簡単だったんだけど、画像だと色変更方法分からないから明度を上げて白くしている。) */
+
 }
 /* ユーザー検索 */
 .user_search {
@@ -386,10 +390,240 @@ padding-bottom:10px;
     color: #fff;
 }
 
-/* フォローリスト */
+/* フォローリスト フォロワーリスト */
+.followlist_container {
+    padding-top: 30px;
+}
+
+.followlist_container h2 {
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+.followlist-content {
+    flex-wrap: wrap;
+    width: 40%;
+    top: 110px;
+    left: 250px;
+    position: absolute;
+}
+
+.followlist-item {
+    padding: 30px;
+    padding-left: 100px;
+    white-space: nowrap;
+    border-bottom: 1px solid #888;
+    position: relative;
+}
+
+.followList-post,
+.followerList-post {
+    padding-left: 68px;
+    font-size: 15px;
+    padding-top: 10px;
+}
 
 /* フォロワーリスト */
+.followerlist-container {
+    padding-top: 30px;
+}
+
+.followerlist-container h2 {
+    padding-left: 50px;
+    font-size: 20px;
+}
+
+.followerlist-content {
+    flex-wrap: wrap;
+    width: 40%;
+    position: absolute;
+    top: 110px;
+    left: 250px;
+}
+
+.followerlist-item {
+    padding: 30px;
+    padding-left: 100px;
+    white-space: nowrap;
+    border-bottom: 1px solid #888;
+    position: relative;
+}
+
+.line {
+    border-bottom: 7px solid #d3d3d3;
+    margin-top: 50px;
+}
+
+.followList-time,
+.followerList-time {
+    font-size: 13px;
+    position: absolute;
+    right: 70px;
+}
 
 /* プロフィール */
+/* プロフィール機能　*/
+
+.myProfile-content {
+    display: flex;
+    margin-top: 40px;
+}
+
+.profile-icon {
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.profile-items {
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.profile-items li {
+    display: flex;
+    margin-top: 50px;
+}
+
+.update-label {
+    width: 50%;
+}
+
+.update,
+#password,
+#password_confirmation {
+    border: solid #717171 1px;
+    background-color: #f4f4f4;
+    height: 35px;
+    width: 400px;
+    right: 500px;
+    padding-left: 10px;
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 30%;
+    margin-top: 20px;
+    left: 580px;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.img-update {
+    border: solid #717171 1px;
+    background-color: #f4f4f4;
+    height: 80px;
+    width: 400px;
+    right: 500px;
+}
+
+.img-update span {
+    background: #fff;
+    color: #717171;
+    padding: 10px 20px;
+    margin-left: 90px;
+    margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.btn-profileUpdate {
+    background-color: #ec384e;
+    border-radius: 7px;
+    margin: 20px 160px;
+    padding: 5px 60px;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 500px;
+    cursor: pointer;
+}
+
+/* 相手ユーザーのプロフィール　*/
+.other-container {
+    border-bottom: 7px solid #d3d3d3;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    padding-left: 100px;
+}
+
+.profile-content {
+    display: flex;
+}
+
+.profile-top {
+    display: flex;
+}
+
+.profile-name {
+    display: flex;
+    margin-left: 30px;
+}
+
+.profile-bio {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.name,
+.bio {
+    width: 200px;
+}
+
+.profile_unfollow-input {
+    background-color: #f33;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    margin-left: 250px;
+}
+
+.profile_follow-input {
+    background-color: #39f;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    margin-left: 250px;
+}
+
+.profile_unfollow-input a,
+.profile_follow-input a {
+    color: #fff;
+}
+
+.otherProfile-post {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-left: 200px;
+    border-bottom: 1px solid #888;
+    display: flex;
+}
+
+.otherPost-flex {
+    display: flex;
+}
+
+.profile_post-time {
+    font-size: 13px;
+    position: absolute;
+    right: 320px;
+}
+
+.other-post {
+    font-size: 15px;
+    padding: 20px;
+    width: 500px;
+    flex-wrap: wrap;
+}
 
 /* 相手のプロフィール */
