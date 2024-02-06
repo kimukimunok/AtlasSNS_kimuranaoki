@@ -10,7 +10,7 @@
         <span class="followe_icon">
             <!-- ここの記述がfollowかfollowerか違うのみ -->
             <a href="/users/{{$follower->id}}/profile">
-                <img src=" {{ asset('images/' .$follower->images) }}" alt="アイコン" width="30">
+                <img src=" {{ asset('storage/' .$follower->images) }}" alt="アイコン" width="30">
             </a>
         </span>
         @endforeach
@@ -22,7 +22,7 @@
             <!-- アイコン表示 -->
             <ul class="post-flex">
                 <a href="/users/{{$post->user->id}}/profile">
-                    <img src="{{ asset('images/'.$post->user->images)}}" alt="アイコン" width="30"></a>
+                    <img src="{{ asset('storage/'.$post->user->images)}}" alt="アイコン" width="30"></a>
                 <li>{{ $post->user->username }}</li>
                 <li>{{ $post->created_at }}</li>
             </ul>

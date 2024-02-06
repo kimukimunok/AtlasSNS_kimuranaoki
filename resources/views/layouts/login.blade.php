@@ -30,7 +30,7 @@
             <!-- アコーディオンメニュー -->
             <div class="accordion-container">
                 <dl class="accordion-list">
-                    <dt class="accordion-title js-title">{{ Auth::user()->username }}さん<img src="{{ \Storage::url(Auth::user()->images) }}"></dt>
+                    <dt class="accordion-title js-title">{{ Auth::user()->username }}さん<img src="{{ \Storage::url(Auth::user()->images) }}" width="30"></dt>
                     <dd class="accordion-text">
                         <ul>
                             <li class="text-home"><a href="/top">HOME</a></li>

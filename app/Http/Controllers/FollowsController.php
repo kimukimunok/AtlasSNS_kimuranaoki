@@ -64,7 +64,6 @@ class FollowsController extends Controller
             return back();
         }
         // もしログインしているユーザーがフォローを行ったらレコードを追加する。（フォローする）
-
     }
     public function unfollow($id)
     {
