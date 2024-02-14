@@ -74,15 +74,11 @@ class UsersController extends Controller
     // ユーザー検索機能
     public function search(Request $request)
     {
-        // クエリビルダを使って($query=)でデータテーブルを指定する。
         $query = User::query();
-        // $keywordの定義、$requestの中から検索したものがkeyword
-        $keyword = $request->input('keyword'); //検索したいキーワードを取得
-        //条件分岐　keywordが入力されたとき。
+        $keyword = $request->input('keyword');
         if (!empty($keyword)) {
             $query->where('username', 'like', '%' . $keyword . '%' )->where('id', '!=', Auth::id())->get();
-            //自分以外を表示させる記述（参考サイト:https://zenn.dev/shimotaroo/scraps/bd5865bf3d6aeb）にて「!=」の記述で「ではない、以外」を示している。自分以外のログインしているユーザーの様な意味
-            $users = $query->get(); //usersテーブルから取得している。
+            $users = $query->get(); 
             return view('users.search', [
                 'users' => $users,
                 'keyword' => $keyword

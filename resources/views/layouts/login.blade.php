@@ -26,19 +26,26 @@
     <header>
         <div id="head">
             <h1><a href="/top"><img class="header-atlas" src="{{asset('images/atlas.png')}}" alt="アトラス文字" width="100"></a></h1>
-
             <!-- アコーディオンメニュー -->
+
             <div class="accordion_container">
-                <dl class="accordion_list">
-                    <dt class="accordion_title js-title">{{ Auth::user()->username }}さん<img src="{{ \Storage::url(Auth::user()->images) }}" alt="ユーザーアイコン" width="30"></dt>
-                    <dd class="accordion_text">
-                        <ul>
+                <ul>
+                    <li class="header_username">{{ Auth::user()->username }}さん</li>
+                    <li class="accordion_push"></li>
+                </ul>
+                <div class="accordion_list">
+                    <nav>
+                        <ul class="accordion_text">
                             <li class="text_home"><a href="/top">HOME</a></li>
                             <li class="text_profile"><a href="/profile">プロフィール編集</a></li>
-                            <li class="text_logout"><a href="logout">ログアウト</a></li>
+                            <li class="text_logout"><a href="/logout">ログアウト</a></li>
                         </ul>
-                    </dd>
-                </dl>
+                    </nav>
+                </div>
+                <div class="icon_container">
+                    <div><img class="accordion_icon" src="{{ \Storage::url(Auth::user()->images) }}" alt="ユーザーアイコン" width="30">
+                    </div>
+                </div>
             </div>
     </header>
     <div id="row">
@@ -66,5 +73,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/script.js' )}}"></script>
+
 </html>
 <!-- 確認OK -->

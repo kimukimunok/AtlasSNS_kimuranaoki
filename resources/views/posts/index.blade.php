@@ -7,9 +7,9 @@
 <div class="form_container">
     <img class="user_icon" src=" {{ asset('storage/'.Auth::user()->images)}}" alt="アイコン" width="50">
     {{ Form::textarea('newPost', null, ['required', 'class' => 'post', 'placeholder' => '投稿内容を入力してください.', 'style' => 'white-space: pre-line;']) }}
-    <div class="form-btn-container">
-        <button input="submit" class="post-btn" href="">
-            <img class="btn-success" src="images/post.png" alt="送信">
+    <div class="form_btn_container">
+        <button input="submit" class="post_btn" href="">
+            <img class="btn_success" src="images/post.png" alt="送信">
         </button>
     </div>
 </div>
@@ -17,13 +17,13 @@
 
 <!-- 投稿一覧の表示 -->
 @foreach ($posts as $post)
-<div class="post-container">
+<div class="post_container">
     <div>
         <div>
             <ul class="post_flex">
                 <div>
                     <!-- アイコンを表示する。 -->
-                    <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="40">
+                    <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="30">
                 </div>
                 <!-- ユーザー名-->
                 <li class="post_username">{{$post->user->username}}</li>

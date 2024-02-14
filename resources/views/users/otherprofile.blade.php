@@ -48,16 +48,14 @@
 @foreach($posts as $post)
 <div class="otherProfile_post">
     <!-- アイコンの表示 -->
-    <div>
-        <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="45">
-    </div>
-    <div>
-        <ul class="otherPost_flex">
-            <li class="post_username">{{ $post->user->username }}</li>
-            <li class="profile_post_time">{{ $post->created_at }}</li>
-        </ul>
-        <p class="other_post">{{ $post->post }}</p>
-    </div>
+    <ul class="post_flex">
+        <div>
+            <img src="{{ asset('storage/' .$post->user->images) }}" alt="アイコン" width="30">
+        </div>
+        <li class="post_username">{{ $post->user->username }}</li>
+        <li class="post_time">{{ $post->created_at }}</li>
+    </ul>
+    <p class="post_detail">{{ $post->post }}</p>
 </div>
 @endforeach
 @endsection
