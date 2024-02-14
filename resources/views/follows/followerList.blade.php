@@ -4,7 +4,7 @@
 <div class="followlist_container">
 
     <h2>Follower List</h2>
-    <div class="followlist-content">
+    <div class="followlist_content">
         <!-- アイコン一覧表示(followlistと同じ) -->
         @foreach($followers as $follower)
         <span class="followe_icon">
@@ -17,10 +17,10 @@
     </div>
     <div class="line"></div>
     @foreach($posts as $post)
-    <div class="followerlist-item">
+    <div class="followerlist_item">
         <div>
             <!-- アイコン表示 -->
-            <ul class="post-flex">
+            <ul class="post_flex">
                 <a href="/users/{{$post->user->id}}/profile">
                     <img src="{{ asset('storage/'.$post->user->images)}}" alt="アイコン" width="30"></a>
                 <li>{{ $post->user->username }}</li>
@@ -28,7 +28,7 @@
             </ul>
         </div>
         <ul>
-            <li class="followerlist-post">{{ $post->post }}</li>
+            <li class="followerlist_post">{{ $post->post }}</li>
         </ul>
     </div>
     @endforeach

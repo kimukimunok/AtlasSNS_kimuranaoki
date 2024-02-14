@@ -18,53 +18,47 @@
 
 // Auth::routes();
 
-
-//ログアウト中のページ[OK]
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
 Route::post('/register', 'Auth\RegisterController@register');
 
-//[タスク2]新規登録のバリデーション設定で以下の二つのルーティングのメソッド記述を「@added」→「@register」に変更1002→1003変えたせいでaddedページが変なことになってたから直した
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
-// ミドルウェア（ログインしていないと見れないようにする）
+// ミドルウェア
 Route::group(
     ['middleware' => 'auth'],
     function () {
-        //ログイン中のページ[OK]
+        //ログイン中のページ
         Route::post('/top', 'PostsController@index');
         Route::get('/top', 'PostsController@index');
-
-        // プロフィール遷移[OK]
+        // プロフィール遷移
         Route::get('/profile', 'UsersController@profile');
-        // 他ユーザーのプロフィール[OK]
+        // 他ユーザーのプロフィール
         Route::get('/users/{id}/profile', 'UsersController@otherProfile');
-        // [タスク5-2]ユーザー検索の処理を実装する。検索機能のルーティング[OK]
+        // ユーザー検索処理
         Route::get('/search', 'UsersController@search');
-        // プロフィールの更新[ok]
+        // プロフィールの更新
         Route::post('/profile/update', 'UsersController@profileUpdate');
-        //フォローリスト表示[OK]
+        //フォローリスト表示
         Route::get('/followList', 'FollowsController@followList');
-        //フォロワーリスト表示[OK]
+        //フォロワーリスト表示
         Route::get('/followerList', 'FollowsController@followerList');
-
-        // ログアウト機能[OK]
+        // ログアウト機能
         Route::get('/logout', 'Auth\LoginController@logout');
-        // 投稿フォームの作成（index.bladeとのルーティング）[OK]
+        // 投稿フォームの作成
         Route::post('/top', 'PostsController@index');
-        // 投稿を登録するフォームの作成[OK]
+        // 投稿を登録するフォームの作成
         Route::post('/post/create', 'PostsController@create');
-        // 投稿更新処理の記述。[ok]
+        // 投稿更新処理の記述。
         Route::post('/post/update', 'PostsController@update');
-        // 投稿削除処理の記述[OK]
+        // 投稿削除処理の記述
         Route::get('/post/{id}/delete', 'PostsController@delete');
-
-        //フォローする[OK]
+        //フォロー
         Route::get('/user/{id}/follow', 'FollowsController@follow')->name('follow');
-        //フォロー解除する[OK]
+        //フォロー解除
         Route::get('/user/{id}/unfollow', 'FollowsController@unfollow')->name('unfollow');
     }
 );

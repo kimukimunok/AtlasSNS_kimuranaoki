@@ -5,8 +5,8 @@
 {!! Form::open(['url' => '/search', 'method' => 'GET']) !!}
 <div class="user_search">
     {!! Form::input ('text', 'keyword' , null , ['class' => 'keyword' , 'placeholder '=> 'ユーザー名' ]) !!}
-    <button type="submit" class="search-btn">
-        <img class="search-push" src="./images/search.png" alt="検索" width="40">
+    <button type="submit" class="search_btn">
+        <img class="search_push" src="./images/search.png" alt="検索" width="40">
     </button>
     {!! Form::close() !!}
 
@@ -16,15 +16,15 @@
     @endif
 </div>
 <!-- アカウント一覧を表示 -->
-<div class="container-list">
+<div class="container_list">
     <table>
         @foreach ($users as $user)
-        <ul class="list-items">
+        <ul class="list_items">
             <li><img src="{{ asset('storage/' .$user->images) }}" alt="ユーザーアイコン" width="50"></li>
-            <li class="search-username">{{ $user->username }}</li>
+            <li class="search_username">{{ $user->username }}</li>
             <!-- ログインユーザーがフォローしていたらフォロー解除ボタンを表示する -->
             @if (Auth::user()->isFollowing($user->id))
-            <div class="btn-container">
+            <div class="btn_container">
                 <li class="unfollow_container">
                     <button type="button" class="unfollow_input">
                         <a href="/user/{{ $user->id }}/unfollow">フォロー解除</a>
@@ -44,4 +44,4 @@
     </table>
 </div>
 @endsection
-<!-- ok -->
+<!-- 確認ok -->

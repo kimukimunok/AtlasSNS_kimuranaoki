@@ -31,7 +31,7 @@ header p {
 
 }
 /* AtlasSNSにようこそより以下 */
-.login-container{
+.login_container{
     text-align: center;
     width: 220px;
     margin: 0 auto;
@@ -42,15 +42,15 @@ header p {
     border-radius: 10px;/* 角を丸く */
     -top: 35px;
 }
-.login-items {
+.login_items {
     padding: 20px 20px 0 20px;
 }
-.login-text {
+.login_text {
     font-size: 14px;
     font-weight: 100;
 }
 
-.form-label,.register-label{
+.form_label,.register_label{
     text-align: left;
     font-size: 10px;
     margin-bottom: -10px;
@@ -61,7 +61,7 @@ header p {
     width: 177px;
     height: 25px;
 }
-.btn-loginregister{
+.btn_loginregister{
     color: #fff;
     background-color: #ec384e;
     border-radius: 5px;
@@ -70,12 +70,11 @@ header p {
     font-size: 15px;
     border: none;
 }
-.register-text{
+.register_text{
       font-size: 10px;
 }
-/* ログイン画面ここまで */
 /* 新規ユーザー登録画面 */
-.register-background{
+.register_background{
     background-color: rgb(0 0 0/15%);
     border-radius: 10px;/* 角を丸く */
 }
@@ -95,51 +94,44 @@ header p {
     font-size: 14px;
     border: none;
 }
-.alert-danger{
+.alert_danger{
     font-size: 11px;
 }
 /* 登録成功画面 */
-#clear {
+#added {
     margin: 30px;
 }
-.added-background{
+.added_background{
     text-align: center;
     width: 220px;
     margin: auto;
     line-height: 30px;
     background-color: rgb(0 0 0/15%);
-    border-radius: 10px;/* 角を丸く */
+    border-radius: 10px;
     padding-bottom: 20px;
-    /* バックグラウンド空間を下に伸ばした */
 }
-.added-background ul p{
+.added_background ul p{
     margin: -10px ;
     font-size: 12px;
 }
-
-.added-welcome{
-    /* 太字に */
+.added_welcome{
     padding-top: 20px;
     font-weight: bold;
     margin:0 15px 15px 15px;
 }
-.added-end{
+.added_end{
     margin:15px;
     }
-
-.added-text {
+.added_text {
     background-color: #ec384e;
     border-radius: 5px;
     margin: 0 auto;
-    /* 上下の数値を０に、左右をオート化 */
     width: 50%;
-    /* 左右幅50％に */
     border: none;
 }
-
-.added-text a{
+.added_text a{
     font-size: 12px;
     color: #fff;
 }
 
-/* とりあえずログアウト画面はここで完了してるはず */
+/* 確認OK */

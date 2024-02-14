@@ -1,17 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
-
-
 class UsersController extends Controller
-
-
-
 // プロフィール内の処理
 {
     public function __construct()
@@ -26,9 +19,8 @@ class UsersController extends Controller
     // ユーザープロフィールの更新
     public function profileUpdate(Request $request)
     {
-        // ログインユーザーのみを認識
         $user = Auth::user();
-        // 以下バリデーション
+        // バリデーション
         $request->validate([
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email:rfc,dns|min:5|max:40|unique:users',

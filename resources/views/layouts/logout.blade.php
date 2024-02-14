@@ -23,15 +23,16 @@
 
 <body>
     <header>
-        <h1><img class="top-image" src="images/atlas.png"></h1>
+        <h1><img class="top-image" src="images/atlas.png" alt="トップ画像"></h1>
         <p>Social Network Service</p>
     </header>
     <div id="container">
         @yield('content')
     </div>
-    <!-- [scriptタグ]javaやBscript等のスクリプトを読み込むためのファイル。→全然違うjqueryのリンク -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="{{ asset('js/script.js' )}}"></script>
 </body>
 
 </html>
+
+<!-- 確認OK -->

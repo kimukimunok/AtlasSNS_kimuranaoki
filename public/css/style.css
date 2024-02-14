@@ -1,5 +1,4 @@
 @charset "utf-8";
-/* ログイン画面のCSSはこっちに記述(login.bladeにリンクあり) */
 html{color: #186AC9;
      font-size: 16px;
 }
@@ -21,28 +20,22 @@ header{
 }
 #row{
     display: flex;
-    /* flex-flow: row wrap; */
 }
 #container{
     flex: 0 0 80%;
 }
-
-
-
 /* アコーディオンメニュー */
-.accordion-container {
+.accordion_container {
   flex: 0 0 20%;
   height: 0px;
   position: absolute;
   top: 1px;
   right: 1px;
 }
-
-.accordion-list:not(:first-child) {
+.accordion_list:not(:first-child) {
   margin-top: 10px;
 }
-
-.accordion-title {
+.accordion_title {
     display: block;
   color: #fff;
   cursor: pointer;
@@ -50,8 +43,7 @@ header{
   padding: 20px 40px 20px 15px;
   position: relative;
 }
-
-.accordion-title:before {
+.accordion_title:before {
   position: absolute;
   display: block;
   top: 18px;
@@ -59,8 +51,7 @@ header{
   color: #4459b6;
   font-size: 18px;
 }
-
-.accordion-title:after {
+.accordion_title:after {
   position: absolute;
   display: block;
   content: '>';
@@ -71,19 +62,15 @@ header{
   transform: rotate(-90deg);
   transition: all .3s ;
 }
-
-.accordion-title.open:after {
+.accordion_title.open:after {
   transform: rotate(90deg);
   top: 45%;
-
 }
-
-.accordion-text {
+.accordion_text {
     background-color: #FFF;
   ul{border-left: 2px solid #000080;
   border-right: 2px solid #000080;
   border-bottom: 2px solid #000080;
-
     li{
         border-top:2px solid #000080;
       display: flex;
@@ -93,8 +80,7 @@ header{
     }
   }
 }
-
-.accordion-text:before {
+.accordion_text:before {
   position: absolute;
   display: block;
   top: 18px;
@@ -102,29 +88,28 @@ header{
   color: #4459b6;
   font-size: 18px;
 }
-
-.text-home,.text-profile,.text-logout{
+.text_home,.text_profile,.text_logout{
     color: #727272;
 }
-
-.text-profile{
+.text_profile{
     background-color :#000080;
 }
 
-/* サイドバー周辺 */
-#side-bar{
+/* サイドバー */
+#side_bar{
     flex: 0 0 20%;
     border-left: 1px solid #727272;
     font-size: 12px;
     color: #000;
     max-width: 300px;
 }
-#side-menu{
+#side_menu{
     padding: 10px;
     border-bottom: 1px solid #727272;
 }
-.side-username{
+.side_username{
 padding-bottom:10px;
+ margin: 10px 0;
 }
 .btn {
     color: #fff;
@@ -138,11 +123,6 @@ padding-bottom:10px;
     font-size: 10px;
     display: block;
 }
-
-.side-username{
-     margin: 10px 0;
-}
-
 .follows,.follower{
     display: flex;
 }
@@ -150,7 +130,7 @@ padding-bottom:10px;
     margin-left:80px ;
     position: absolute;
 }
-.btn-search {
+.btn_search {
     color: #fff;
     background-color: #36c;
     text-decoration: none;
@@ -161,15 +141,16 @@ padding-bottom:10px;
     margin:15px 0px 0px 50px;
     font-size: 13px;
 }
-/* indexblade */
-.form-container {
+
+/* 投稿一覧画面 */
+.form_container {
     display: flex;
     align-items: center;
     border-bottom: 5px solid #d3d3d3;
     padding: 10px 0 10px;
     height: 90px;
 }
-.user-icon {
+.user_icon {
     width: 45px;
     padding: 0px 5px 40px 60px;
 }
@@ -179,7 +160,6 @@ padding-bottom:10px;
 .post {
     display: block;
     border: none;
-    /* 文字透け */
     opacity: 50%;
     width: 500px;
     height: 80px;
@@ -197,8 +177,6 @@ padding-bottom:10px;
     border: none;
     background-color: transparent;
 }
-
-
 /* ホーム投稿一覧画面 */
 .post-container {
     color: #000;
@@ -209,22 +187,22 @@ padding-bottom:10px;
     border-bottom: 1px solid #888;
     padding: 20px 0px 50px 150px;
 }
-.post-icon {
+.post_icon {
     width: 30px;
 }
-.post-flex {
+.post_flex {
     display: flex;
 }
-.post-username {
+.post_username {
     padding: 10px 0 0 10px;
     font-size: 14px;
 }
-.post-time {
+.post_time {
     font-size: 10px;
     position: absolute;
     right: 30px;
 }
-.post-detail {
+.post_detail {
     padding:5px 0 5px 60px ;
     font-size: 14px;
     width: 500px;
@@ -235,15 +213,14 @@ padding-bottom:10px;
     position: relative;
     display: inline-block;
 }
-/* 画像とinput要素を重ねるために絶対配置を設定する */
 .postUpdate_img {
     position: relative;
     display: inline-block;
     top: 5px;
     left: 280px;
 }
-/* input要素を非表示にして透明にする */
-.btn-post_update {
+/* input要素を非表示にする */
+.btn_post_update {
     position: absolute;
     top: 10px;
     left: 280px;
@@ -252,8 +229,8 @@ padding-bottom:10px;
     opacity: 0;
     cursor: pointer;
 }
-投稿編集モーダル
-.js-modal {
+/* 投稿編集モーダル */
+.js_modal {
     display: none;
     height: 100vh;
     position: fixed;
@@ -314,7 +291,6 @@ padding-bottom:10px;
     filter: brightness(5);
     background:#FF0000;
     /* ここ他の方法知りたい。(文字なら色反転簡単だったんだけど、画像だと色変更方法分からないから明度を上げて白くしている。) */
-
 }
 /* ユーザー検索 */
 .user_search {
@@ -329,14 +305,14 @@ padding-bottom:10px;
     padding: 7px;
     font-size: 15px;
 }
-.search-btn {
+.search_btn {
     display: inline-block;
     vertical-align: middle;
     border: none;
     background-color: transparent;
     margin-left: 10px;
 }
-.search-push {
+.search_push {
     margin: 5px;
     width: 35px;
     border-radius: 4px;
@@ -347,22 +323,22 @@ padding-bottom:10px;
     margin-left: 100px;
     font-size: 20px;
 }
-.container-list {
+.container_list {
     padding: 30px;
     width: 100%;
 }
-.list-items {
+.list_items {
     display: flex;
     width: 410px;
     margin-top: 20px;
     padding-left: 200px;
 }
-.search-username {
+.search_username {
     padding: 10px;
     margin-left: 10px;
     width: 50%;
 }
-.btn-container {
+.btn_container {
     top: 10px;
 }
 .follow_input {
@@ -400,7 +376,7 @@ padding-bottom:10px;
     font-size: 20px;
 }
 
-.followlist-content {
+.followlist_content {
     flex-wrap: wrap;
     width: 40%;
     top: 110px;
@@ -408,7 +384,7 @@ padding-bottom:10px;
     position: absolute;
 }
 
-.followlist-item {
+.followlist_item {
     padding: 30px;
     padding-left: 100px;
     white-space: nowrap;
@@ -416,24 +392,24 @@ padding-bottom:10px;
     position: relative;
 }
 
-.followList-post,
-.followerList-post {
+.followList_post,
+.followerList_post {
     padding-left: 68px;
     font-size: 15px;
     padding-top: 10px;
 }
 
 /* フォロワーリスト */
-.followerlist-container {
+.followerlist_container {
     padding-top: 30px;
 }
 
-.followerlist-container h2 {
+.followerlist_container h2 {
     padding-left: 50px;
     font-size: 20px;
 }
 
-.followerlist-content {
+.followerlist_content {
     flex-wrap: wrap;
     width: 40%;
     position: absolute;
@@ -441,7 +417,7 @@ padding-bottom:10px;
     left: 250px;
 }
 
-.followerlist-item {
+.followerlist_item {
     padding: 30px;
     padding-left: 100px;
     white-space: nowrap;
@@ -454,38 +430,36 @@ padding-bottom:10px;
     margin-top: 50px;
 }
 
-.followList-time,
-.followerList-time {
+.followList_time,
+.followerList_time {
     font-size: 13px;
     position: absolute;
     right: 70px;
 }
-
 /* プロフィール */
 /* プロフィール機能　*/
-
-.myProfile-content {
+.myProfile_content {
     display: flex;
     margin-top: 40px;
 }
 
-.profile-icon {
+.profile_icon {
     margin-left: 100px;
     margin-top: 50px;
 }
 
-.profile-items {
+.profile_items {
     justify-content: center;
     margin-top: 10px;
     margin-left: 100px;
 }
 
-.profile-items li {
+.profile_items li {
     display: flex;
     margin-top: 50px;
 }
 
-.update-label {
+.update_label {
     width: 50%;
 }
 
@@ -510,7 +484,7 @@ input[type="file"] {
     cursor: pointer;
 }
 
-.img-update {
+.img_update {
     border: solid #717171 1px;
     background-color: #f4f4f4;
     height: 80px;
@@ -518,7 +492,7 @@ input[type="file"] {
     right: 500px;
 }
 
-.img-update span {
+.img_update span {
     background: #fff;
     color: #717171;
     padding: 10px 20px;
@@ -528,8 +502,7 @@ input[type="file"] {
     display: inline-block;
     z-index: 1;
 }
-
-.btn-profileUpdate {
+.btn_profileUpdate {
     background-color: #ec384e;
     border-radius: 7px;
     margin: 20px 160px;
@@ -541,40 +514,33 @@ input[type="file"] {
     margin-left: 500px;
     cursor: pointer;
 }
-
 /* 相手ユーザーのプロフィール　*/
-.other-container {
+.other_container {
     border-bottom: 7px solid #d3d3d3;
     margin-top: 50px;
     padding-bottom: 30px;
     padding-left: 100px;
 }
-
-.profile-content {
+.profile_content {
     display: flex;
 }
-
-.profile-top {
+.profile_top {
     display: flex;
 }
-
-.profile-name {
+.profile_name {
     display: flex;
     margin-left: 30px;
 }
-
-.profile-bio {
+.profile_bio {
     display: flex;
     margin-top: 20px;
     margin-left: 30px;
 }
-
 .name,
 .bio {
     width: 200px;
 }
-
-.profile_unfollow-input {
+.profile_unfollow_input {
     background-color: #f33;
     text-decoration: none;
     padding: 10px 20px;
@@ -585,7 +551,7 @@ input[type="file"] {
     margin-left: 250px;
 }
 
-.profile_follow-input {
+.profile_follow_input {
     background-color: #39f;
     text-decoration: none;
     padding: 10px 20px;
@@ -595,35 +561,28 @@ input[type="file"] {
     border: none;
     margin-left: 250px;
 }
-
-.profile_unfollow-input a,
+.profile_unfollow_input a,
 .profile_follow-input a {
     color: #fff;
 }
-
-.otherProfile-post {
+.otherProfile_post {
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
     padding-left: 200px;
     border-bottom: 1px solid #888;
     display: flex;
 }
-
-.otherPost-flex {
+.otherPost_flex {
     display: flex;
 }
-
-.profile_post-time {
+.profile_post_time {
     font-size: 13px;
     position: absolute;
     right: 320px;
 }
-
-.other-post {
+.other_post {
     font-size: 15px;
     padding: 20px;
     width: 500px;
     flex-wrap: wrap;
 }
-
-/* 相手のプロフィール */
