@@ -99,7 +99,7 @@ header{
     padding: 40px 0;
     font-size: 20px;
 }
-
+/* アコーディオンメニュー：ホバー */
 .accordion_text li a:hover {
     background: #04297e;
     color: #fff;
@@ -119,9 +119,7 @@ header{
 .text_home,.text_profile,.text_logout{
     color: #727272;
 }
-.text_profile{
-    background-color :#000080;
-}
+
 
 /* サイドバー */
 #side_bar{
@@ -138,7 +136,7 @@ header{
 padding-bottom:10px;
  margin: 10px 0;
 }
-.btn {
+.btn a{
     color: #fff;
     background-color: #186AC9;
     padding: 7px 0px;
@@ -157,7 +155,7 @@ padding-bottom:10px;
     margin-left:80px ;
     position: absolute;
 }
-.btn_search {
+.btn_search a{
     color: #fff;
     background-color: #36c;
     text-decoration: none;
@@ -184,12 +182,14 @@ padding-bottom:10px;
 .form_btn_container {
     padding: 0;
 }
+
 .post {
     display: block;
     border: none;
-    opacity: 50%;
+    opacity: 60%;
     width: 500px;
     height: 80px;
+    resize: none;
 }
 .btn_success {
     width: 30px;
@@ -315,7 +315,6 @@ padding-bottom:10px;
 .delete:hover {
     filter: brightness(5);
     background:#FF0000;
-    /* ここ他の方法知りたい。(文字なら色反転簡単だったんだけど、画像だと色変更方法分からないから明度を上げて白くしている。) */
 }
 /* ユーザー検索 */
 .user_search {
