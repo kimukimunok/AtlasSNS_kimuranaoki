@@ -20,7 +20,7 @@
                 <li class="register_label">{{ Form::label('password_confirmation', 'password_confirmation') }}</li>
                 <li class="form_text">{{ Form::password('password_confirmation',null,['class' => 'input']) }}</li>
                 <form>
-                    <p><input class="btn btn_register" type="submit" value="register"></p>
+                    <p><input class="btn btn_register" type="submit" value="REGISTER"></p>
                 </form>
             </ul>
             {!! Form::close() !!}

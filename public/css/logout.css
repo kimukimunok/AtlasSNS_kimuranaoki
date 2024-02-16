@@ -65,9 +65,18 @@ header p {
     color: #fff;
     background-color: #ec384e;
     border-radius: 5px;
-    margin: 15px 0 20px 50%;
-    padding: 5px 22px 5px ;
-    font-size: 15px;
+    margin: 15px 0 20px 60%;
+    padding: 5px 10px 5px ;
+    font-size: 17px;
+    border: none;
+}
+.btn_register{
+   color: #fff;
+    background-color: #ec384e;
+    border-radius: 5px;
+    margin: 15px 0 20px 43%;
+    padding: 5px 8px 5px ;
+    font-size: 17px;
     border: none;
 }
 .register_text{
