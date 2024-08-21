@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+
 class UsersController extends Controller
 // プロフィール内の処理
 {
@@ -63,7 +66,8 @@ class UsersController extends Controller
         return redirect('/top');
     }
     // 他のユーザーのプロフィール
-    public function otherProfile($id){
+    public function otherProfile($id)
+    {
         $posts = Post::where('user_id', $id)->get();
         $profile = User::where('id', $id)->get();
         return view('users.otherprofile', [
@@ -77,8 +81,8 @@ class UsersController extends Controller
         $query = User::query();
         $keyword = $request->input('keyword');
         if (!empty($keyword)) {
-            $query->where('username', 'like', '%' . $keyword . '%' )->where('id', '!=', Auth::id())->get();
-            $users = $query->get(); 
+            $query->where('username', 'like', '%' . $keyword . '%')->where('id', '!=', Auth::id())->get();
+            $users = $query->get();
             return view('users.search', [
                 'users' => $users,
                 'keyword' => $keyword

@@ -1,12 +1,9 @@
 @extends('layouts.login')
 @section('content')
 {!! Form::open(['url' => 'post/create']) !!}
-@foreach($errors->all() as $error)
-<li>{{ $error }}</li>
-@endforeach
 <div class="form_container">
     <img class="user_icon" src=" {{ asset('storage/'.Auth::user()->images)}}" alt="アイコン" width="50">
-    {{ Form::textarea('newPost', null, ['required', 'class' => 'post', 'placeholder' => '投稿内容を入力してください.', 'style' => 'white-space: pre-line;']) }}
+    {{ Form::textarea('newPost', null, ['required', 'class' => 'post', 'placeholder' => '投稿内容を入力してください.;']) }}
     <div class="form_btn_container">
         <button input="submit" class="post_btn" href="">
             <img class="btn_success" src="images/post.png" alt="送信">

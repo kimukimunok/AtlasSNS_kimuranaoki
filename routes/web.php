@@ -50,8 +50,10 @@ Route::group(
         Route::get('/logout', 'Auth\LoginController@logout');
         // 投稿フォームの作成
         Route::post('/top', 'PostsController@index');
+
         // 投稿を登録するフォームの作成
         Route::post('/post/create', 'PostsController@create');
+        
         // 投稿更新処理の記述。
         Route::post('/post/update', 'PostsController@update');
         // 投稿削除処理の記述

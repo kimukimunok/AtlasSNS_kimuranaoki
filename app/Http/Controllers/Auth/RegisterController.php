@@ -41,6 +41,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+        // バリデーションメッセージ
         if ($request->isMethod('post')) {
             $request->validate([
                 'username' => 'required|min:2|max:12|',

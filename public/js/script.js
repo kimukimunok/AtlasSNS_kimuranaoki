@@ -20,9 +20,11 @@ $(".accordion_push").on('click', function () {
 // 投稿編集のモーダル
 $(function () {
   $('.js_modal_open').on('click', function () {
-      $( '.js_modal' ).fadeIn();
+    $('.js_modal').fadeIn();
+    //情報の取得
       var post = $(this).attr('post');
-      var post_id = $(this).attr('post_id');
+    var post_id = $(this).attr('post_id');
+    // 変数定義↓
     $('.modal_post').text(post);
      $('.modal_id').val(post_id);
       return false;

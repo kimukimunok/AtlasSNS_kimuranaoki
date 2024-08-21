@@ -24,7 +24,7 @@ class PostsController extends Controller
         $request->validate([
             'newPost' => 'required|max:150|min:1'
         ]);
-
+        // 投稿作成機能
         $user_id = Auth::id();
         $posts = $request->input('newPost');
         Post::create([
@@ -47,6 +47,7 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+    // 投稿削除機能
     public function delete($id)
     {
         Post::where('id', $id)->delete();

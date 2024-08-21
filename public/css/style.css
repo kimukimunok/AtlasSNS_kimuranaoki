@@ -125,7 +125,7 @@ header{
 #side_bar{
     flex: 0 0 20%;
     border-left: 1px solid #727272;
-    font-size: 12px;
+    font-size: 13px;
     max-width: 300px;
 }
 #side_menu{
